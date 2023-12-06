@@ -4,8 +4,8 @@
   "description": "",
   "homepage": "https://github.com/Tumoji/javascript-proiect-grupa-1",
   "scripts": {
-    "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /javascript-proiect-grupa-1/"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /javascript-proiect-grupa-1/"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,12 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
+    "buffer": "^6.0.3",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
