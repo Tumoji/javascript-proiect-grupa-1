@@ -13,7 +13,7 @@ export default apiDetails;
 // Pentru a importa API-ul folositi codul de mai jos
 
 // import axios from 'axios';
-// import apiDetails from './js/api-details.js';
+// import apiDetails from './api-details.js';
 
 // pentru axios
 
