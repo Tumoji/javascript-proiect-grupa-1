@@ -13,7 +13,7 @@ export default apiMovie;
 // Pentru a importa API-ul folositi codul de mai jos
 
 // import axios from 'axios';
-// import apiMovie from './js/api-movie.js';
+// import apiMovie from './api-movie.js';
 
 // pentru axios
 

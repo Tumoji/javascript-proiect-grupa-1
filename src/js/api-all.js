@@ -13,7 +13,7 @@ export default apiAll;
 // Pentru a importa API-ul folositi codul de mai jos
 
 // import axios from 'axios';
-// import apiAll from './js/api-all.js';
+// import apiAll from './api-all.js';
 
 // pentru axios
 
