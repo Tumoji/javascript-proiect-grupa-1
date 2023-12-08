@@ -8,18 +8,18 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
+  }
   
-.font-flex {
+  .font-flex {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     gap: 10px;
-}
-
-.font-size {
+  }
+  
+  .font-size {
     color: #545454;
     text-align: center;
     font-family: Roboto;
@@ -27,8 +27,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-}
-
+  }
   
   .icon-flex {
     display: flex;
@@ -38,57 +37,70 @@
     color: #B92F2C;
   }
   
+  /* modal */
+  
   .is-hidden {
-    display: none;
+    visibility: hidden;
   }
   
   .footer-modal {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: #000000b3;
-    opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 0;
   }
   
   .footer-modal.is-visible {
-    display: flex;
-    opacity: 1;
+    visibility: visible;
   }
   
   .modal-content {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #aba0a0;
     padding: 20px;
     text-align: center;
+    z-index: 5;
+    width: 60%;
+    height: 400px;
+    margin: 0 auto;
   }
   
   .close-footer-modal {
     position: absolute;
+    z-index: 10;
     top: 10px;
     right: 10px;
     font-size: 24px;
-    color: #fff;
+    color: #B92F2C;
     background-color: #333;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
-
+  
+  .close-footer-modal:hover {
+    border: 2px solid #B92F2C;
+    background: transparent;
+  }
+  
   @media screen and (min-width: 768px) {
-
+  
     .font-flex {
         flex-direction: row;
         gap: 10px;
     }
-
+  
     .font-size {
         color: #545454;
     text-align: center;
@@ -99,9 +111,9 @@
     line-height: normal;
     }
   }
-
+  
   @media screen and (min-width: 1280px) {
-
+  
     .body-content {
         flex-direction: row;
       }
@@ -110,5 +122,4 @@
         font-size: 16px;
     }
   }
-
   

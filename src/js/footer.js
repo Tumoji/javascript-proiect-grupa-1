@@ -1,16 +1,16 @@
 document.querySelector('.currentYear').textContent = new Date().getFullYear();
 
-document.addEventListener('DOMContentLoaded', function () {
-    const openModalLink = document.querySelector('[data-modal-open]');
-    const closeModal = document.querySelector('[data-modal-close]');
-    const modal = document.querySelector('[data-modal]');
+(() => {
+    const refs = {
+      openModalBtn: document.querySelector("[data-modal-open]"),
+      closeModalBtn: document.querySelector("[data-modal-close]"),
+      modal: document.querySelector("[data-modal]"),
+    };
   
-    openModalLink.addEventListener('click', function () {
-        modal.classList.remove('is-hidden');
-    });
+    refs.openModalBtn.addEventListener("click", toggleModal);
+    refs.closeModalBtn.addEventListener("click", toggleModal);
   
-    closeModal.addEventListener('click', function () {
-        modal.classList.add('is-hidden');
-    });
-  });
-
+    function toggleModal() {
+      refs.modal.classList.toggle("is-hidden");
+    }
+  })();
