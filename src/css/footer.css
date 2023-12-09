@@ -1,0 +1,282 @@
+
+.footer {
+    background: #F7F7F7;
+  }
+  
+  .body-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .font-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+  }
+  
+  .font-size {
+    color: #545454;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .icon-flex {
+    display: flex;
+  }
+  
+  .color-font {
+    color: #B92F2C;
+  }
+  
+  /* modal */
+  
+  .is-hidden {
+    visibility: hidden;
+    transform: scale(1.1);
+  }
+  
+  .footer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #00000033;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform var(--transition);
+    pointer-events: auto;
+  }
+  
+  .footer-modal.is-visible {
+    visibility: visible;
+  }
+  
+  .modal-content {
+    padding: 25px 10px;
+    background-color: #fff;
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+    position: relative;
+    border-radius: 5px;
+    align-content: center;
+  }
+  
+  .close-footer-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    fill: #B92F2C;
+    background-color: #fff;
+    padding: 2px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    width: 30px;
+    height: 30px;
+    transition: background-color var(--transition);
+  }
+  
+  .close-footer-modal:hover {
+    border: 2px solid #B92F2C;
+    background: transparent;
+  }
+
+.font-title {
+    margin-top: 15px;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: clamp(10px, 12px, 20px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.content {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.content-group {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 95%;
+}
+
+.card-team-lider {
+    border: 2px solid #B92F2C;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 50%;
+    height: 55%;
+}
+
+.card-group {
+    border: 2px solid #B92F2C;
+    width: 80%;
+    border-radius: 5px;
+    height: 75%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px;
+}
+
+.card-flex-team-lider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.member-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box; 
+    justify-content: center;
+}
+
+.image-leader {
+    border-radius: 30%;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.rounded-image-leader {
+    width: 70%;
+    height: 50%;
+    display: block;
+}
+
+.rounded-image-container {
+    border-radius: 40%; 
+    overflow: hidden;
+}
+
+.rounded-image {
+    width: 20%;
+    height: auto;
+    display: block;
+}
+
+.member-name {
+    color: #000;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 133.333%;
+    text-transform: uppercase;
+}
+
+.member-position {
+    color: #000;
+    font-family: Roboto;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 133.333%;
+}
+  
+    /* modal tablet */
+    
+  @media screen and (min-width: 768px) {
+  
+    .font-flex {
+        flex-direction: row;
+        gap: 10px;
+    }
+  
+    .font-size {
+        color: #545454;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
+
+
+/* Stilurile generale pentru carduri */
+.card-team {
+    border: 2px solid;
+    width: 80%;
+    height: 85%;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Adăugați un spațiu între carduri */
+}
+
+    .content {
+        grid-template-columns: repeat(2, 1fr); /* Două carduri pe un rând */
+    }
+
+    /* Cardul de sus rămâne la fel ca la mobile */
+    .content > .card-team:first-child {
+        grid-column: span 1;
+    }
+
+    /* Celelalte patru carduri se așează pe două rânduri câte două */
+    .content > .content > .card-team {
+        grid-column: span 2;
+    }
+
+.font-title {
+    font-size: 20px;
+    line-height: 23px;
+}
+
+  }
+  
+
+      /* modal desktop */
+
+  @media screen and (min-width: 1280px) {
+  
+    .body-content {
+        flex-direction: row;
+      }
+    
+    .font-size {
+        font-size: 16px;
+    }
+
+    .font-title {
+        font-size: 30px;
+        line-height: 35px;
+    }
+  }
+  
