@@ -1,2 +1,0 @@
-document.querySelector(".currentYear").textContent=(new Date).getFullYear(),function(){var e={openModalBtn:document.querySelector("[data-modal-open]"),closeModalBtn:document.querySelector("[data-modal-close]"),modal:document.querySelector("[data-modal]")};function t(){e.modal.classList.toggle("is-hidden")}e.openModalBtn.addEventListener("click",t),e.closeModalBtn.addEventListener("click",t)}();
-//# sourceMappingURL=index.15e2c626.js.map
