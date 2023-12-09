@@ -1,6 +1,6 @@
 const apiMovie = {
   method: 'GET',
-  url: 'https://api.themoviedb.org/3/search/movie?query=creator&include_adult=false&language=en-US&page=1',
+  url: 'https://api.themoviedb.org/3/trending/movie/week?language=en-US',
   headers: {
     accept: 'application/json',
     Authorization:
@@ -13,7 +13,7 @@ export default apiMovie;
 // Pentru a importa API-ul folositi codul de mai jos
 
 // import axios from 'axios';
-// import apiMovie from './api-movie.js';
+// import apiAll from './api-movie.js';
 
 // pentru axios
 
