@@ -1,6 +1,6 @@
-const apiAll = {
+const apiSearch = {
   method: 'GET',
-  url: 'https://api.themoviedb.org/3/trending/all/week?language=en-US',
+  url: 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1',
   headers: {
     accept: 'application/json',
     Authorization:
@@ -8,17 +8,17 @@ const apiAll = {
   },
 };
 
-export default apiAll;
+export default apiSearch;
 
 // Pentru a importa API-ul folositi codul de mai jos
 
 // import axios from 'axios';
-// import apiAll from './api-all.js';
+// import apiMovie from './api-search.js';
 
 // pentru axios
 
 // axios
-//   .request(apiAll)
+//   .request(apiSearch)
 //   .then(function (response) {
 //     console.log(response.data);
 //   })
