@@ -45,6 +45,7 @@
   }
   
   .footer-modal {
+    z-index: 10;
     position: fixed;
     top: 0;
     left: 0;
@@ -67,7 +68,6 @@
     background-color: #fff;
     margin: 0 auto;
     width: 80%;
-    height: 80%;
     position: relative;
     border-radius: 5px;
     align-content: center;
@@ -113,28 +113,19 @@
 }
 
 .content {
-    display: grid;
-    align-items: center;
-    justify-items: center;
     width: 100%;
-    height: 90%;
+    min-height: 90%
 }
 
 .content-group {
     width: 100%;
-    display: grid;
+    height: calc(100% - 180px);
     align-items: center;
-    justify-items: center;
-    height: 95%;
-}
-
-.card-team-lider {
-    border: 2px solid #B92F2C;
-    align-items: center;
+    display: flex;
     justify-content: center;
-    border-radius: 5px;
-    width: 50%;
-    height: 55%;
+    flex-direction: column;
+    gap: 10px;
+    list-style-type: none;
 }
 
 .card-group {
@@ -146,13 +137,6 @@
     flex-direction: row;
     gap: 10px;
     padding: 5px;
-}
-
-.card-flex-team-lider {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
 }
 
 .card-flex {
@@ -167,69 +151,84 @@
     padding: 10px;
     box-sizing: border-box; 
     justify-content: center;
-}
-
-.image-leader {
-    border-radius: 30%;
-    overflow: hidden;
-    padding: 10px;
-}
-
-.rounded-image-leader {
-    width: 70%;
-    height: 50%;
-    display: block;
+    gap: 15px;
+    align-items: start;
 }
 
 .rounded-image-container {
-    border-radius: 40%; 
+    width: 50%;
+    height: 50%;
+    border-radius: 25%;
     overflow: hidden;
 }
 
 .rounded-image {
-    width: 20%;
+    width: 40%;
     height: auto;
     display: block;
 }
 
-.member-name {
-    color: #000;
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 133.333%;
-    text-transform: uppercase;
+.team-name {
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  font-family: Roboto;
 }
 
-.member-position {
-    color: #000;
-    font-family: Roboto;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 133.333%;
+.team-function {
+  color: #757575;
+  text-align: center;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 133.333%;
+  letter-spacing: 0.48px;
+  font-family: Roboto;
+}
+
+.icon-div-cards {
+  width: 10%;
+  height: 10%;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-cards svg {
+  width: 20px;
+  height: 20px;
+  margin: 12px;
 }
   
     /* modal tablet */
-    
+
   @media screen and (min-width: 768px) {
   
-    .font-flex {
-        flex-direction: row;
-        gap: 10px;
-    }
+.font-flex {
+  flex-direction: row;
+  gap: 10px;
+}
   
-    .font-size {
-        color: #545454;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    }
+.font-size {
+  font-size: 16px;
+}
 
+.content-group {
+    width: 90%;
+    height: calc(100% - 180px);
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Stilurile generale pentru carduri */
 .card-team {
@@ -237,46 +236,56 @@
     width: 80%;
     height: 85%;
     border-radius: 5px;
-    margin-bottom: 10px; /* Adăugați un spațiu între carduri */
+    margin-bottom: 10px;
 }
 
-    .content {
-        grid-template-columns: repeat(2, 1fr); /* Două carduri pe un rând */
-    }
-
-    /* Cardul de sus rămâne la fel ca la mobile */
-    .content > .card-team:first-child {
-        grid-column: span 1;
-    }
-
-    /* Celelalte patru carduri se așează pe două rânduri câte două */
-    .content > .content > .card-team {
-        grid-column: span 2;
-    }
+.modal-content {
+  width: 50%;
+}
 
 .font-title {
     font-size: 20px;
     line-height: 23px;
 }
 
-  }
-  
+.team-name {
+  font-size: 14px;
+}
 
-      /* modal desktop */
+.team-function {
+  font-size: 12px;
+} 
+}
 
-  @media screen and (min-width: 1280px) {
+
+  /* modal desktop */
+
+@media screen and (min-width: 1280px) {
   
-    .body-content {
-        flex-direction: row;
-      }
+.body-content {
+  flex-direction: row;
+}
     
-    .font-size {
-        font-size: 16px;
-    }
+.font-size {
+  font-size: 16px;
+}
 
-    .font-title {
-        font-size: 30px;
-        line-height: 35px;
-    }
-  }
+.font-title {
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.modal-content {
+  width: 50%;
+}
+
+.team-name {
+  font-size: 16px;
+}
+
+.team-function {
+  font-size: 14px;
+}
+
+}
   
