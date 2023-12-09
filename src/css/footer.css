@@ -1,282 +1,309 @@
 
 .footer {
-    background: #F7F7F7;
-  }
-  
-  .body-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .font-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    gap: 10px;
-  }
-  
-  .font-size {
-    color: #545454;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .icon-flex {
-    display: flex;
-  }
-  
-  .color-font {
-    color: #B92F2C;
-  }
-  
-  /* modal */
-  
-  .is-hidden {
-    visibility: hidden;
-    transform: scale(1.1);
-  }
-  
-  .footer-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #00000033;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform var(--transition);
-    pointer-events: auto;
-  }
-  
-  .footer-modal.is-visible {
-    visibility: visible;
-  }
-  
-  .modal-content {
-    padding: 25px 10px;
-    background-color: #fff;
-    margin: 0 auto;
-    width: 80%;
-    height: 80%;
-    position: relative;
-    border-radius: 5px;
-    align-content: center;
-  }
-  
-  .close-footer-modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    fill: #B92F2C;
-    background-color: #fff;
-    padding: 2px 4px;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    width: 30px;
-    height: 30px;
-    transition: background-color var(--transition);
-  }
-  
-  .close-footer-modal:hover {
-    border: 2px solid #B92F2C;
-    background: transparent;
-  }
+  background: #f7f7f7;
+}
+
+.body-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.font-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.font-size {
+  color: #545454;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.color-font {
+  color: #b92f2c;
+}
+
+.heart-icon-custom {
+  width: 14px;
+  height: 14px;
+  fill: #b92f2c;
+}
+
+.is-hidden {
+  visibility: hidden;
+  transform: scale(1.1);
+}
+
+.footer-modal {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #00000033;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform var(--transition);
+  pointer-events: auto;
+}
+
+.footer-modal.is-visible {
+  visibility: visible;
+}
+
+.modal-content {
+  padding: 25px 10px;
+  background-color: #fff;
+  margin: 0 auto;
+  width: 90%;
+  max-height: 95%;
+  position: relative;
+  border-radius: 20px;
+  align-content: center;
+}
+
+.close-footer-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  fill: #b92f2c;
+  background-color: #fff;
+  padding: 2px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  width: 30px;
+  height: 30px;
+  transition: background-color var(--transition);
+}
+
+.close-icon-custom {
+  width: 12px;
+  height: 12px;
+  fill: #000;
+}
+
+.close-footer-modal:hover {
+  border: 2px solid #b92f2c;
+  background: transparent;
+}
 
 .font-title {
-    margin-top: 15px;
-    color: #000;
-    justify-content: center;
-    align-items: center;
-    font-family: Roboto;
-    font-size: clamp(10px, 12px, 20px);
-    font-style: normal;
-    font-weight: 500;
-    line-height: 10px;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+  margin-top: 2px;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-size: clamp(10px, 12px, 18px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: clamp(12px, 14px, 20px);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .content {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    width: 100%;
-    height: 90%;
+  width: 100%;
+  min-height: 90%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .content-group {
-    width: 100%;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    height: 95%;
-}
-
-.card-team-lider {
-    border: 2px solid #B92F2C;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    width: 50%;
-    height: 55%;
+  width: 100%;
+  height: calc(100% - 180px);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
 }
 
 .card-group {
-    border: 2px solid #B92F2C;
-    width: 80%;
-    border-radius: 5px;
-    height: 75%;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding: 5px;
+  border: 2px solid #b92f2c;
+  width: 90%;
+  border-radius: 20px;
+  height: 75%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 5px;
 }
 
-.card-flex-team-lider {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
+.card-team {
+  border: 2px solid;
+  width: 80%;
+  height: 85%;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-.card-flex {
-    display: flex;
-    flex-direction: row;
+.icon-cards:hover {
+  background: #b92f2c;
 }
 
-.member-info {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    box-sizing: border-box; 
-    justify-content: center;
-}
-
-.image-leader {
-    border-radius: 30%;
-    overflow: hidden;
-    padding: 10px;
-}
-
-.rounded-image-leader {
-    width: 70%;
-    height: 50%;
-    display: block;
+.icon-cards {
+  fill: #000;
+  width: 20px;
+  height: 20px;
 }
 
 .rounded-image-container {
-    border-radius: 40%; 
-    overflow: hidden;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 45%;
 }
 
-.rounded-image {
-    width: 20%;
-    height: auto;
-    display: block;
+.member-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  gap: 15px;
+  align-items: start;
 }
 
-.member-name {
-    color: #000;
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 133.333%;
-    text-transform: uppercase;
+.team-name {
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  font-family: Roboto;
 }
 
-.member-position {
-    color: #000;
-    font-family: Roboto;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 133.333%;
+.team-function {
+  color: #757575;
+  text-align: center;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 133.333%;
+  letter-spacing: 0.48px;
+  font-family: Roboto;
+}
+
+.icon-div-cards {
+  display: flex;
+  width: 10%;
+  height: 10%;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  border: 1px solid #000;
+  padding: 14px;
+  display: flex;
+  gap: 6px;
+}
+
+
+ /* modal tablet */
+
+ @media screen and (min-width: 768px) {
+  .card-group {
+    flex-direction: row;
+    width: 50%;
+  }
 }
   
-    /* modal tablet */
-    
-  @media screen and (min-width: 768px) {
+.font-flex {
+  flex-direction: row;
+  gap: 10px;
+}
   
-    .font-flex {
-        flex-direction: row;
-        gap: 10px;
-    }
-  
-    .font-size {
-        color: #545454;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    }
-
-
-/* Stilurile generale pentru carduri */
-.card-team {
-    border: 2px solid;
-    width: 80%;
-    height: 85%;
-    border-radius: 5px;
-    margin-bottom: 10px; /* Adăugați un spațiu între carduri */
+.font-size {
+  font-size: 16px;
 }
 
-    .content {
-        grid-template-columns: repeat(2, 1fr); /* Două carduri pe un rând */
-    }
+.content-group {
+  width: 90%;
+  height: calc(100% - 180px);
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    /* Cardul de sus rămâne la fel ca la mobile */
-    .content > .card-team:first-child {
-        grid-column: span 1;
-    }
-
-    /* Celelalte patru carduri se așează pe două rânduri câte două */
-    .content > .content > .card-team {
-        grid-column: span 2;
-    }
+.modal-content {
+  width: 70%;
+  max-height: 95%;
+}
 
 .font-title {
     font-size: 20px;
     line-height: 23px;
 }
 
-  }
-  
+.team-name {
+  font-size: 14px;
+}
 
-      /* modal desktop */
+.team-function {
+  font-size: 12px;
+}
 
-  @media screen and (min-width: 1280px) {
+
+  /* modal desktop */
+
+@media screen and (min-width: 1280px) {
   
-    .body-content {
-        flex-direction: row;
-      }
+.body-content {
+  flex-direction: row;
+}
     
-    .font-size {
-        font-size: 16px;
-    }
+.font-size {
+  font-size: 16px;
+}
 
-    .font-title {
-        font-size: 30px;
-        line-height: 35px;
-    }
-  }
+.font-title {
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.modal-content {
+  width: 65%;
+  max-height: 95%;
+}
+
+.team-name {
+  font-size: 16px;
+}
+
+.team-function {
+  font-size: 14px;
+}
+
+.card-group {
+  width: 50%;
+  flex-direction: row;
+}
+
+}
   
