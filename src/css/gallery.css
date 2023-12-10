@@ -112,7 +112,7 @@
   transform: scale(1.3);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 424px) {
   .movie-container {
     display: flex;
     flex-wrap: wrap;
@@ -129,6 +129,23 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .movie-card {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    width: calc(33% - 14px);
+  }
+}
+
 @media screen and (min-width: 1280px) {
   .movie-container {
     gap: 20px;
@@ -136,6 +153,6 @@
     width: 1216px;
   }
   .movie-card {
-    width: calc(33.33% - 14px);
+    width: calc(25% - 15px);
   }
 }
