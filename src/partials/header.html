@@ -17,7 +17,7 @@
         <i class="fas fa-circle"></i>
       </div>
     </div>
-    <div class="btn-container-1">
+    <div class="btn-container-1" onclick="redirectToIndex()">
       <button class="btn-52">
         <div class="original">HOME</div>
         <div class="letters">
@@ -51,6 +51,7 @@
       <div class="form-container">
         <form class="search-form" id="search-form">
           <input
+            class="searchInput"
             type="text"
             name="searchQuery"
             autocomplete="off"
@@ -64,7 +65,14 @@
             />
           </button>
         </form>
+        <div class="searchError"></div>
       </div>
     </div>
   </section>
 </header>
+
+<script>
+    function redirectToIndex() {
+      window.location.href = 'index.html';
+    }
+  </script>
