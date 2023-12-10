@@ -54,6 +54,7 @@ async function displayMovieCards(movies) {
     movies.forEach(movie => {
       const movieCard = document.createElement('div');
       movieCard.classList.add('movie-card');
+      movieCard.setAttribute('data-movieid', movie.id);
 
       const movieImage = document.createElement('img');
       const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
