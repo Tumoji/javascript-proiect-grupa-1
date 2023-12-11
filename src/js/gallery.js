@@ -84,8 +84,12 @@ async function displayMovieCards(movies) {
       movieInfo.textContent = `${genresString} | ${releaseYear} `;
       movieInfo.classList.add('movie-info');
 
+      // movieCard.addEventListener('click', () => {
+      //   openModal(); // Deschide fereastra modală când este apăsat un card de film
+      // });
+
       movieCard.addEventListener('click', () => {
-        openModal(); // Deschide fereastra modală când este apăsat un card de film
+        openModal(movie.id);
       });
 
       movieCard.appendChild(movieImage);
