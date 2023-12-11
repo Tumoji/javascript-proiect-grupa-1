@@ -6,7 +6,8 @@ import { getMovieGenres } from './api-genres.js';
 const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('.searchInput');
 const resultContainer = document.querySelector('.resultContainer');
-const movieContainer = document.querySelector('.movie-container'); // Added this line
+const galleryContainer = document.querySelector('.gallery');
+const searchContainer = document.querySelector('.resultContainer');
 const searchErrorContainer = document.querySelector('.searchError');
 
 const loaderContainer = document.querySelector('.loader-container');
@@ -33,8 +34,11 @@ searchForm.addEventListener('submit', async function (event) {
     const response = await axios.get(searchUrl, apiSearch);
     const movies = response.data.results;
 
-    // Hide the movie container when there are movie results
-    movieContainer.style.display = movies.length > 0 ? 'none' : 'block';
+    // Ascunde Gallery cand apar filme din search
+    galleryContainer.style.display = movies.length > 0 ? 'none' : 'block';
+
+    // Afiseaza search-movies.html cand apar filme din search
+    searchContainer.style.display = movies.length > 0 ? 'flex' : 'none';
 
     if (movies.length === 0) {
       showError('No results found.');
