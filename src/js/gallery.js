@@ -1,10 +1,13 @@
+// gallery.js
+
 import axios from 'axios';
 import apiMovie from './api-movie.js';
 import { getMovieGenres } from './api-genres.js';
+import { openModal } from './modal.js';
 
-const ITEMS_PER_PAGE = 20; // Define the number of items per page
 let currentPage = 1;
 const TOTAL_PAGES = 1000; // Numărul total maxim de pagini disponibile
+const ITEMS_PER_PAGE = 20; // Define the number of items per page
 
 // Funcția pentru afișarea cardurilor pe o anumită pagină
 async function displayMoviesByPage(page) {
@@ -33,7 +36,7 @@ async function getMoviesFromApi(page) {
 
     const response = await axios.request(apiMoviePage);
 
-    if (!response.status === 200) {
+    if (response.status !== 200) {
       throw new Error('Network response was not ok');
     }
 
@@ -55,6 +58,7 @@ async function displayMovieCards(movies) {
       const movieCard = document.createElement('div');
       movieCard.classList.add('movie-card');
       movieCard.setAttribute('data-movieid', movie.id);
+      movieCard.setAttribute('modal-movie-card-open', 'true');
 
       const movieImage = document.createElement('img');
       const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
@@ -79,6 +83,10 @@ async function displayMovieCards(movies) {
       const genresString = movieGenres.join(' ');
       movieInfo.textContent = `${genresString} | ${releaseYear} `;
       movieInfo.classList.add('movie-info');
+
+      movieCard.addEventListener('click', () => {
+        openModal(); // Deschide fereastra modală când este apăsat un card de film
+      });
 
       movieCard.appendChild(movieImage);
       movieCard.appendChild(movieTitle);
