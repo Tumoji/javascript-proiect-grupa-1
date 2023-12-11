@@ -8,6 +8,12 @@ btn1_ctn.addEventListener('click', () => {
   one.classList.toggle('active1');
   btn1_ctn.classList.toggle('changeBg');
 
-  // Toggle background color of the body
-  document.body.classList.toggle('dark-mode');
+  // Check the current mode and toggle accordingly
+  if (document.body.classList.contains('dark-mode')) {
+    // If in dark mode, switch to light mode
+    document.body.classList.replace('dark-mode', 'light-mode');
+  } else {
+    // If in light mode or no mode, switch to dark mode
+    document.body.classList.replace('light-mode', 'dark-mode');
+  }
 });
