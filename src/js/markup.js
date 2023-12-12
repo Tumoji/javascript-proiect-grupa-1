@@ -1,6 +1,6 @@
 // markup.js
 
-import { openModal } from './modal.js';
+// import { openModal } from './modal.js';
 
 // Funcție pentru generarea sablonului unui card de film:
 export function createMovieCard(movie, genres) {
@@ -12,11 +12,10 @@ export function createMovieCard(movie, genres) {
   const movieImage = document.createElement('img');
   const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
-  // Încercă să încarci imaginea; în caz de eroare, setează o imagine implicită sau un alt text
   try {
     movieImage.src = imageUrl;
   } catch (error) {
-    movieImage.src = 'default-image.jpg'; // sau poți afișa un alt text
+    movieImage.src = 'default-image.jpg'; // sau  un alt text
     movieImage.alt = 'Image not available';
     console.error('Failed to load image:', error);
   }
@@ -39,14 +38,13 @@ export function createMovieCard(movie, genres) {
   });
 
   // Verifică dacă există genuri disponibile; în caz contrar, afișează un mesaj alternativ
-  const genresString =
-    movieGenres.length > 0 ? movieGenres.join(' ') : 'Genre not available';
+  const genresString = movieGenres.length > 0 ? movieGenres.join(' ') : 'N/A';
   movieInfo.textContent = `${genresString} | ${releaseYear} `;
   movieInfo.classList.add('movie-info');
 
-  movieCard.addEventListener('click', () => {
-    openModal(movie.id); // Deschide fereastra modală când este apăsat un card de film
-  });
+  // movieCard.addEventListener('click', () => {
+  //   openModal(movie.id);
+  // });
 
   movieCard.appendChild(movieImage);
   movieCard.appendChild(movieTitle);
