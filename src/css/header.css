@@ -5,10 +5,6 @@ body {
   transition: background-color 1s; /* Add transition for smooth color change */
 }
 
-.dark-mode {
-  background-color: #111; /* Set your dark mode background color */
-  color: #fff; /* Set text color for dark mode */
-}
 
   
   @keyframes rotation {
@@ -22,7 +18,7 @@ body {
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
+  } 
 
 header {
   display: flex;
@@ -195,8 +191,8 @@ header {
   box-sizing: border-box;
 }
 .btn-52 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
+  /* -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button; */
   background-color: #fff;
   background-image: none;
   color: #000;
@@ -206,7 +202,7 @@ header {
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: 100%;
   margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  /* -webkit-mask-image: -webkit-radial-gradient(#000, #fff); */
   padding: 0;
 }
 .btn-52:disabled {
@@ -280,8 +276,8 @@ header {
   box-sizing: border-box;
 }
 .btn-53 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
+  /* -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button; */
   background-color: #000;
   background-image: none;
   color: #fff;
@@ -291,7 +287,7 @@ header {
     Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: 100%;
   margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  /* -webkit-mask-image: -webkit-radial-gradient(#000, #fff); */
   padding: 0;
 }
 .btn-53:disabled {
@@ -302,7 +298,7 @@ header {
 }
 .btn-53 svg {
   display: block;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 .btn-53 [hidden] {
   display: none;
@@ -582,3 +578,5 @@ i {
     /* box-shadow: 0px 3px 10px 0px rgba(255, 255, 255, 0.75); */
   }
 }
+
+
