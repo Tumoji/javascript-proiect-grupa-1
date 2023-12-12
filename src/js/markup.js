@@ -45,7 +45,7 @@ export function createMovieCard(movie, genres) {
   movieInfo.classList.add('movie-info');
 
   movieCard.addEventListener('click', () => {
-    openModal(); // Deschide fereastra modală când este apăsat un card de film
+    openModal(movie.id); // Deschide fereastra modală când este apăsat un card de film
   });
 
   movieCard.appendChild(movieImage);
