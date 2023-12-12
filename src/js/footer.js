@@ -1,3 +1,5 @@
+// import { btn1_ctn } from './dark-toggle.js'
+
 document.querySelector('.footer-currentYear').textContent = new Date().getFullYear();
 
 (() => {
@@ -14,3 +16,12 @@ document.querySelector('.footer-currentYear').textContent = new Date().getFullYe
       refs.modal.classList.toggle("footer-is-hidden");
     }
   })();
+
+//   const btn1_ctn = document.getElementsByClassName('btn1_container')[0];
+// // debugger;
+//   btn1_ctn.addEventListener('click', () => {
+//     document.div.classList.toggle('footer-dark-mode');
+//   });
+
+
+  
