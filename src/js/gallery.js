@@ -3,16 +3,17 @@
 import axios from 'axios';
 import apiMovie from './api-movie.js';
 import { getMovieGenres } from './api-genres.js';
+import { createMovieCard } from './markup.js';
 import { openModal } from './modal.js';
 
 let currentPage = 1;
-const TOTAL_PAGES = 1000; // Numărul total maxim de pagini disponibile
-const ITEMS_PER_PAGE = 20; // Define the number of items per page
+const TOTAL_PAGES = 1000; // Numărul total maxim de pagini disponibile.
+const ITEMS_PER_PAGE = 20; // Numărul de elemente pe pagină.
 
 // Funcția pentru afișarea cardurilor pe o anumită pagină
 async function displayMoviesByPage(page) {
   const movieContainer = document.querySelector('.movie-container');
-  movieContainer.innerHTML = ''; // Clear the existing movie cards
+  movieContainer.innerHTML = ''; // Curata cardurile de filme existente.
 
   try {
     const movies = await getMoviesFromApi(page);
@@ -26,12 +27,12 @@ async function displayMoviesByPage(page) {
   }
 }
 
-// Actualizarea funcției getMoviesFromApi pentru a primi pagina ca argument
+// Actualizează funcția getMoviesFromApi pentru a primi pagina ca argument:
 async function getMoviesFromApi(page) {
   try {
     const apiMoviePage = {
       ...apiMovie,
-      url: `${apiMovie.url}&page=${page}`, // Adăugați pagina la URL-ul solicitării
+      url: `${apiMovie.url}&page=${page}`, // Adaugă pagina la URL-ul cererii.
     };
 
     const response = await axios.request(apiMoviePage);
@@ -55,42 +56,7 @@ async function displayMovieCards(movies) {
     const genres = await getMovieGenres();
 
     movies.forEach(movie => {
-      const movieCard = document.createElement('div');
-      movieCard.classList.add('movie-card');
-      movieCard.setAttribute('data-movieid', movie.id);
-      movieCard.setAttribute('modal-movie-card-open', 'true');
-
-      const movieImage = document.createElement('img');
-      const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-      movieImage.src = imageUrl;
-      movieImage.alt = movie.title;
-      movieImage.classList.add('movie-image');
-      movieImage.tabIndex = 0; // Adăugarea atributului tabindex
-
-      const movieTitle = document.createElement('h3');
-      movieTitle.textContent = movie.title;
-      movieTitle.classList.add('movie-title');
-
-      const movieInfo = document.createElement('p');
-      const releaseYear =
-        (movie.release_date && movie.release_date.split('-')[0]) || 'undefined';
-
-      const movieGenres = movie.genre_ids.map(genreId => {
-        const foundGenre = genres.find(genre => genre.id === genreId);
-        return foundGenre ? foundGenre.name : '';
-      });
-
-      const genresString = movieGenres.join(' ');
-      movieInfo.textContent = `${genresString} | ${releaseYear} `;
-      movieInfo.classList.add('movie-info');
-
-      movieCard.addEventListener('click', () => {
-        openModal(); // Deschide fereastra modală când este apăsat un card de film
-      });
-
-      movieCard.appendChild(movieImage);
-      movieCard.appendChild(movieTitle);
-      movieCard.appendChild(movieInfo);
+      const movieCard = createMovieCard(movie, genres); // Utilizează funcția pentru generarea cardului de film.
       movieContainer.appendChild(movieCard);
     });
   } catch (error) {
@@ -98,50 +64,55 @@ async function displayMovieCards(movies) {
   }
 }
 
-// Funcția pentru actualizarea paginării și afișarea cardurilor pentru pagina curentă
+// Funcția pentru actualizarea paginării și afișarea cardurilor pentru pagina curentă:
+// Funcția pentru actualizarea paginării și afișarea cardurilor pentru pagina curentă:
 async function updatePaginationAndDisplay(page) {
-  currentPage = page;
-  await displayMoviesByPage(currentPage);
+  try {
+    currentPage = page;
+    await displayMoviesByPage(currentPage);
 
-  const pagination = document.querySelector('.pagination');
-  pagination.innerHTML = '';
+    const pagination = document.querySelector('.pagination');
+    pagination.innerHTML = '';
 
-  const prevButton = document.createElement('a');
-  prevButton.href = '#';
-  prevButton.innerHTML = '&laquo;';
-  prevButton.addEventListener('click', () => {
-    if (currentPage > 1) {
-      updatePaginationAndDisplay(currentPage - 1);
-    }
-  });
-  pagination.appendChild(prevButton);
-
-  const maxPages = Math.min(currentPage + 2, TOTAL_PAGES);
-  const minPages = Math.max(1, maxPages - 4);
-
-  for (let i = minPages; i <= maxPages; i++) {
-    const pageButton = document.createElement('a');
-    pageButton.href = '#';
-    pageButton.textContent = i;
-    if (i === currentPage) {
-      pageButton.classList.add('active');
-    }
-    pageButton.addEventListener('click', () => {
-      updatePaginationAndDisplay(i);
+    const prevButton = document.createElement('a');
+    prevButton.href = '#';
+    prevButton.innerHTML = '&laquo;';
+    prevButton.addEventListener('click', () => {
+      if (currentPage > 1) {
+        updatePaginationAndDisplay(currentPage - 1);
+      }
     });
-    pagination.appendChild(pageButton);
-  }
+    pagination.appendChild(prevButton);
 
-  const nextButton = document.createElement('a');
-  nextButton.href = '#';
-  nextButton.innerHTML = '&raquo;';
-  nextButton.addEventListener('click', () => {
-    if (currentPage < TOTAL_PAGES) {
-      updatePaginationAndDisplay(currentPage + 1);
+    const maxPages = Math.min(currentPage + 2, TOTAL_PAGES);
+    const minPages = Math.max(1, maxPages - 4);
+
+    for (let i = minPages; i <= maxPages; i++) {
+      const pageButton = document.createElement('a');
+      pageButton.href = '#';
+      pageButton.textContent = i;
+      if (i === currentPage) {
+        pageButton.classList.add('active');
+      }
+      pageButton.addEventListener('click', () => {
+        updatePaginationAndDisplay(i);
+      });
+      pagination.appendChild(pageButton);
     }
-  });
-  pagination.appendChild(nextButton);
+
+    const nextButton = document.createElement('a');
+    nextButton.href = '#';
+    nextButton.innerHTML = '&raquo;';
+    nextButton.addEventListener('click', () => {
+      if (currentPage < TOTAL_PAGES) {
+        updatePaginationAndDisplay(currentPage + 1);
+      }
+    });
+    pagination.appendChild(nextButton);
+  } catch (error) {
+    console.error('There was a problem updating pagination:', error);
+  }
 }
 
-// Apelul inițial pentru afișarea cardurilor pentru prima pagină
+// Apelul inițial pentru afișarea cardurilor pentru prima pagină:
 updatePaginationAndDisplay(currentPage);
