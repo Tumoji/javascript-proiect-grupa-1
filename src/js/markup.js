@@ -15,7 +15,7 @@ export function createMovieCard(movie, genres) {
   try {
     movieImage.src = imageUrl;
   } catch (error) {
-    movieImage.src = 'default-image.jpg'; // sau un alt text
+    movieImage.src = 'default-image.jpg'; // sau  un alt text
     movieImage.alt = 'Image not available';
     console.error('Failed to load image:', error);
   }
