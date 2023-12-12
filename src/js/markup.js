@@ -1,5 +1,7 @@
 // markup.js
 
+import { openModal } from './modal.js';
+
 // Funcție pentru generarea sablonului unui card de film:
 export function createMovieCard(movie, genres) {
   const movieCard = document.createElement('div');
