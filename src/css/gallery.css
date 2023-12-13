@@ -102,8 +102,8 @@
   background-color: transparent;
   border: none;
   bottom: 120px;
-  position: fixed;
   right: 20px;
+  position: fixed;
   transition: transform 0.3s ease;
   width: 60px;
 }
@@ -121,6 +121,16 @@
 
 .fixedbutton:focus {
   transform: scale(1.3);
+}
+
+/* Media query pentru dispozitive cu ecrane Retina */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Modifică dimensiunea imaginii pentru ecranele Retina */
+  .fixedbutton img {
+    width: 120px; /* Dimensiunea pentru Retina */
+    height: 120px; /* Dimensiunea pentru Retina */
+    /* Alte stiluri pentru dimensiunile Retina ale imaginii */
+  }
 }
 
 @media screen and (min-width: 424px) {
