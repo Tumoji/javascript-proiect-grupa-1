@@ -53,7 +53,7 @@ searchForm.addEventListener('submit', async function (event) {
 
     movies.forEach(async movie => {
       // Check if the movie has a poster before creating the card
-      if (movie.poster_path) {
+      if (movie.poster_path || !movie.poster_path) {
         const movieCard = document.createElement('div');
         movieCard.classList.add('movie-card-search');
 
