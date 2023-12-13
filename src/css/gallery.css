@@ -65,29 +65,34 @@
   margin-bottom: 40px;
 }
 
-.pagination a {
+/* Stilizare pentru butoanele de paginare */
+.pagination button {
   color: #000;
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px; /* 133.333% */
-  color: black;
   float: left;
   padding: 8px 12px;
   text-decoration: none;
   transition: background-color 0.3s;
-  /* margin: 0 4px; */
+  border: none; /* elimină bordura pentru butoane */
+  cursor: pointer; /* afișează cursorul ca pointer */
+  margin: 0 4px; /* adaugă margini între butoane */
+  background: transparent; /* elimină background-ul implicit */
 }
 
-.pagination a.active {
+/* Stilizare pentru butoanele active din paginare */
+.pagination button.active {
   background-color: #b92f2c;
   color: white;
   border: 1px solid #b92f2c;
   border-radius: 5px;
 }
 
-.pagination a:hover:not(.active) {
+/* Stilizare pentru hover pe butoanele din paginare care nu sunt active */
+.pagination button:not(.active):hover {
   background-color: #ddd;
   border-radius: 5px;
 }
@@ -143,7 +148,6 @@
     justify-content: center;
     margin: 20px;
   }
-
   .movie-card {
     margin-left: 0;
     margin-right: 0;
@@ -152,6 +156,9 @@
   }
   .movie-card .movie-image {
     /* max-height: 455px; */
+  }
+  .fixedbutton {
+    bottom: 160px;
   }
 }
 
@@ -166,5 +173,8 @@
   }
   .movie-card .movie-image {
     /* max-height: 574px; */
+  }
+  .fixedbutton {
+    bottom: 100px;
   }
 }

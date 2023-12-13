@@ -83,9 +83,8 @@ async function updatePaginationAndDisplay(page) {
     const pagination = document.querySelector('.pagination');
     pagination.innerHTML = '';
 
-    const prevButton = document.createElement('a');
-    prevButton.href = '#';
-    prevButton.innerHTML = '&laquo;';
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '«';
     prevButton.addEventListener('click', () => {
       if (currentPage > 1) {
         updatePaginationAndDisplay(currentPage - 1);
@@ -97,8 +96,7 @@ async function updatePaginationAndDisplay(page) {
     const minPages = Math.max(1, maxPages - 4);
 
     for (let i = minPages; i <= maxPages; i++) {
-      const pageButton = document.createElement('a');
-      pageButton.href = '#';
+      const pageButton = document.createElement('button');
       pageButton.textContent = i;
       if (i === currentPage) {
         pageButton.classList.add('active');
@@ -109,9 +107,8 @@ async function updatePaginationAndDisplay(page) {
       pagination.appendChild(pageButton);
     }
 
-    const nextButton = document.createElement('a');
-    nextButton.href = '#';
-    nextButton.innerHTML = '&raquo;';
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '»';
     nextButton.addEventListener('click', () => {
       if (currentPage < TOTAL_PAGES) {
         updatePaginationAndDisplay(currentPage + 1);
