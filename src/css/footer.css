@@ -203,15 +203,22 @@ Custom pairs
 }
 
 .footer-image-container {
-  display: block;
   border-radius: 20px;
-  overflow: hidden;
+  border: 2px solid #000;
   margin: 0 auto;
-  width: 125px;
-  height: 110px;
-  object-fit: cover;
-  border: 2px solid #b92f2c;
+  overflow: visible;
+  object-position: cover;
+  object-fit: center;
 }
+
+.footer-img-size {
+  width: 75px;
+  height: 75px;
+  display: block;
+  border-radius: 50%;
+  background-color: #000;
+  
+} 
 
 .footer-member-info {
   flex-grow: 1;
@@ -290,8 +297,8 @@ Custom pairs
 }
 
 .footer-dark-mode {
-  background-color: #2F303A; /* Set your dark mode background color */
-  color: #fff; /* Set text color for dark mode */
+  background-color: #2F303A;
+  color: #fff;
 }
 
 
@@ -311,7 +318,7 @@ Custom pairs
 
   .footer-team-card {
     flex-direction: row;
-    min-width: 270px;
+    min-width: 250px;
   }
 
   .footer-font-flex {
@@ -363,6 +370,12 @@ Custom pairs
   .footer-icon-cards {
     align-items: center;
     justify-content: center;
+  }
+
+  .footer-img-size {
+    width: 77px;
+    height: 77px;
+  display: block;
   }
 }
 
@@ -429,5 +442,11 @@ Custom pairs
 
   .footer-icon-cards {
     flex-direction: row;
+  }
+
+  .footer-img-size {
+    width: 80px;
+    height: 80px;
+    display: block;
   }
 }
