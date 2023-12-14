@@ -4,9 +4,9 @@ document.querySelector('.footer-currentYear').textContent = new Date().getFullYe
 
 (() => {
     const refs = {
-      openModalBtn: document.querySelector("[footer-data-modal-open]"),
-      closeModalBtn: document.querySelector("[footer-data-modal-close]"),
-      modal: document.querySelector("[footer-data-modal]"),
+      openModalBtn: document.querySelector(".footer-data-modal-open"),
+      closeModalBtn: document.querySelector(".footer-data-modal-close"),
+      modal: document.querySelector(".footer-data-modal"),
     };
   
     refs.openModalBtn.addEventListener("click", toggleModal);
