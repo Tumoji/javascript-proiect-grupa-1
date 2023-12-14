@@ -103,9 +103,9 @@
 .fixedbutton {
   background-color: transparent;
   border: none;
-  bottom: 120px;
-  right: 20px;
   position: fixed;
+  bottom: 20px;
+  right: 20px;
   transition: transform 0.3s ease;
   width: 60px;
 }
@@ -168,9 +168,9 @@
   .movie-card .movie-image {
     /* max-height: 455px; */
   }
-  .fixedbutton {
+  /* .fixedbutton {
     bottom: 160px;
-  }
+  } */
 }
 
 @media screen and (min-width: 1280px) {
@@ -185,7 +185,7 @@
   .movie-card .movie-image {
     /* max-height: 574px; */
   }
-  .fixedbutton {
+  /* .fixedbutton {
     bottom: 100px;
-  }
+  } */
 }
