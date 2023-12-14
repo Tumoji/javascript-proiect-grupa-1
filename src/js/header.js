@@ -1,4 +1,3 @@
-// your-script.js
 import axios from 'axios';
 import apiSearch from './api-search.js';
 import { getMovieGenres } from './api-genres.js';
@@ -7,9 +6,8 @@ const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('.searchInput');
 const resultContainer = document.querySelector('.resultContainer');
 const galleryContainer = document.querySelector('.gallery');
-const searchContainer = document.querySelector('.resultContainer');
+const libraryContainer = document.querySelector('.library');
 const searchErrorContainer = document.querySelector('.searchError');
-
 const loaderContainer = document.querySelector('.loader-container');
 
 searchForm.addEventListener('submit', async function (event) {
@@ -38,7 +36,7 @@ searchForm.addEventListener('submit', async function (event) {
     galleryContainer.style.display = movies.length > 0 ? 'none' : 'block';
 
     // Afiseaza search-movies.html cand apar filme din search
-    searchContainer.style.display = movies.length > 0 ? 'flex' : 'none';
+    resultContainer.style.display = movies.length > 0 ? 'flex' : 'none';
 
     if (movies.length === 0) {
       showError('No results found.');
@@ -103,3 +101,24 @@ function clearError() {
   searchErrorContainer.textContent = '';
   searchErrorContainer.style.display = 'none';
 }
+
+const btnContainer1 = document.querySelector('.btn-52');
+const btnContainer2 = document.querySelector('.btn-53');
+const searchContainer = document.querySelector('.search-container');
+galleryContainer.style.display = 'block';
+libraryContainer.style.display = 'none';
+
+btnContainer1.addEventListener('click', function () {
+  console.log('btnContainer1 clicked');
+  // When btn-container-1 is clicked, show the gallery and hide the library
+  galleryContainer.style.display = 'block';
+  libraryContainer.style.display = 'none';
+});
+
+btnContainer2.addEventListener('click', function () {
+  // When btn-container-2 is clicked, hide the gallery and show the library
+  galleryContainer.style.display = 'none';
+  searchContainer.style.display = 'none';
+  resultContainer.style.display = 'none';
+  libraryContainer.style.display = 'block';
+});

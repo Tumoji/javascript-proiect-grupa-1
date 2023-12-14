@@ -7,8 +7,9 @@ import { createMovieCard } from './markup.js';
 import { openModal } from './modal.js';
 
 let currentPage = 1;
-const TOTAL_PAGES = 1000; // Numărul total maxim de pagini disponibile.
+const TOTAL_PAGES = 500; // Numărul total maxim de pagini disponibile.
 const ITEMS_PER_PAGE = 20; // Numărul de elemente pe pagină.
+const MAX_PAGES_DISPLAYED = 5; // Numărul maxim de pagini afișate în paginare
 
 // Funcția pentru atașarea event listener-ului la un card de film:
 function attachCardClickListener(movieCard, movieId) {
@@ -87,7 +88,7 @@ async function updatePaginationAndDisplay(page) {
     prevButton.textContent = '«';
     prevButton.addEventListener('click', () => {
       if (currentPage > 1) {
-        updatePaginationAndDisplay(currentPage - 1);
+        updatePaginationAndDisplay(1); // Du-te la prima pagină când este apăsată săgeata spre stânga
       }
     });
     pagination.appendChild(prevButton);
@@ -111,7 +112,7 @@ async function updatePaginationAndDisplay(page) {
     nextButton.textContent = '»';
     nextButton.addEventListener('click', () => {
       if (currentPage < TOTAL_PAGES) {
-        updatePaginationAndDisplay(currentPage + 1);
+        updatePaginationAndDisplay(TOTAL_PAGES); // Du-te la ultima pagină când este apăsată săgeata spre dreapta
       }
     });
     pagination.appendChild(nextButton);

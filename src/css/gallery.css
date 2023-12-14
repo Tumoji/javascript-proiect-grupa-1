@@ -1,3 +1,5 @@
+/* gallery.css */
+
 .movie-container {
   min-height: 500px;
 }
@@ -127,8 +129,7 @@
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* Modifică dimensiunea imaginii pentru ecranele Retina */
   .fixedbutton img {
-    width: 120px; /* Dimensiunea pentru Retina */
-    height: 120px; /* Dimensiunea pentru Retina */
+    width: 60px; /* Dimensiunea pentru Retina */
     /* Alte stiluri pentru dimensiunile Retina ale imaginii */
   }
 }
