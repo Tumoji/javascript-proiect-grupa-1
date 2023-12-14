@@ -105,6 +105,7 @@ function clearError() {
 const btnContainer1 = document.querySelector('.btn-52');
 const btnContainer2 = document.querySelector('.btn-53');
 const searchContainer = document.querySelector('.search-container');
+const logoContainer = document.querySelector('.logo-alignment');
 galleryContainer.style.display = 'block';
 libraryContainer.style.display = 'none';
 
@@ -121,4 +122,9 @@ btnContainer2.addEventListener('click', function () {
   searchContainer.style.display = 'none';
   resultContainer.style.display = 'none';
   libraryContainer.style.display = 'block';
+});
+
+logoContainer.addEventListener('click', function () {
+  console.log('logoContainer clicked')
+  window.location.href = 'index.html';
 });
