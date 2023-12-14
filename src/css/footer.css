@@ -202,18 +202,12 @@ Custom pairs
   cursor: pointer;
 }
 
-.footer-icon {
-  fill: #000;
-  width: 20px;
-  height: 20px;
-}
-
 .footer-image-container {
   display: block;
   border-radius: 20px;
   overflow: hidden;
   margin: 0 auto;
-  max-width: 125px;
+  width: 125px;
   height: 110px;
   object-fit: cover;
   border: 2px solid #b92f2c;
@@ -257,8 +251,6 @@ Custom pairs
 
 .footer-icon-cards {
   display: flex;
-  width: 10%;
-  height: 10%;
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
@@ -270,6 +262,36 @@ Custom pairs
   display: flex;
   gap: 6px;
   align-self: center;
+}
+
+.footer-linkedin-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  background-image: url(../images/icons/linkedin.svg);
+}
+
+.footer-github-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  background-image: url(../images/icons/github.svg);
+}
+
+.footer-linkedin-icon:hover,
+.footer-github-icon:hover {
+  background-color: #b92f2c;
+}
+
+.footer-dark-mode {
+  background-color: #2F303A; /* Set your dark mode background color */
+  color: #fff; /* Set text color for dark mode */
 }
 
 
