@@ -1,4 +1,3 @@
-
 /* --step--2: clamp(0.4338rem, 0.3383rem + 0.4771vw, 0.72rem);
   --step--1: clamp(0.5206rem, 0.3942rem + 0.6323vw, 0.9rem);
   --step-0: clamp(0.625rem, 0.4583rem + 0.8333vw, 1.125rem);
@@ -30,7 +29,6 @@ One-up pairs
 
 Custom pairs
 --space-s-l: clamp(0.625rem, 0.0833rem + 2.7083vw, 2.25rem); */
-
 
 .footer {
   background: #f7f7f7;
@@ -204,21 +202,20 @@ Custom pairs
 
 .footer-image-container {
   border-radius: 20px;
-  border: 2px solid #000;
-  margin: 0 auto;
-  overflow: visible;
-  object-position: cover;
-  object-fit: center;
+  margin: 10px auto;
+  margin-left: 10px;
+  height: 75px;
+  width: 75px;
 }
 
 .footer-img-size {
+  margin: 0 auto;
   width: 75px;
   height: 75px;
-  display: block;
-  border-radius: 50%;
-  background-color: #000;
-  
-} 
+  border: 2px solid #000;
+  border-radius: 20px;
+  object-fit: cover;
+}
 
 .footer-member-info {
   flex-grow: 1;
@@ -269,6 +266,7 @@ Custom pairs
   display: flex;
   gap: 6px;
   align-self: center;
+  margin-right: 10px;
 }
 
 .footer-linkedin-icon {
@@ -297,15 +295,13 @@ Custom pairs
 }
 
 .footer-dark-mode {
-  background-color: #2F303A;
+  background-color: #2f303a;
   color: #fff;
 }
-
 
 /* modal tablet */
 
 @media screen and (min-width: 768px) {
-
   .footer-modal-close {
     width: clamp(1.2963rem, 0.8127rem + 2.4177vw, 2.7469rem);
     height: clamp(1.2963rem, 0.8127rem + 2.4177vw, 2.7469rem);
@@ -375,15 +371,13 @@ Custom pairs
   .footer-img-size {
     width: 77px;
     height: 77px;
-  display: block;
+    display: block;
   }
 }
-
 
 /* modal desktop */
 
 @media screen and (min-width: 1280px) {
-
   .footer-modal-close {
     width: clamp(1.2963rem, 0.8127rem + 2.4177vw, 2.7469rem);
     height: clamp(1.2963rem, 0.8127rem + 2.4177vw, 2.7469rem);
