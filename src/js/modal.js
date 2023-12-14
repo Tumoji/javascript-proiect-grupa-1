@@ -75,6 +75,70 @@ export async function openModal(movieId) {
 
     `;
 
+    // Function to toggle a movie ID in local storage
+    function toggleLocalStorage(movieId, key) {
+      const storedIds = localStorage.getItem(key)
+        ? JSON.parse(localStorage.getItem(key))
+        : [];
+
+      // Check if the movie ID is in the storage
+      const index = storedIds.indexOf(movieId);
+      if (index !== -1) {
+        // If the movie ID is found, remove it
+        storedIds.splice(index, 1);
+        console.log(`Movie ID ${movieId} removed from ${key}.`);
+      } else {
+        // If the movie ID is not found, add it
+        storedIds.push(movieId);
+        console.log(`Movie ID ${movieId} added to ${key}.`);
+      }
+
+      localStorage.setItem(key, JSON.stringify(storedIds));
+    }
+
+    // Function to update the button text based on the movie ID presence in local storage
+    function updateButtonText(button, movieId, key) {
+      const storedIds = localStorage.getItem(key)
+        ? JSON.parse(localStorage.getItem(key))
+        : [];
+
+      if (storedIds.includes(movieId)) {
+        button.textContent = `Remove from ${
+          key.charAt(0).toUpperCase() + key.slice(1)
+        }`;
+      } else {
+        button.textContent = `Add to ${
+          key.charAt(0).toUpperCase() + key.slice(1)
+        }`;
+      }
+    }
+
+    // Event listener for "Add to Queue" button
+    const addToQueueButton = document.querySelector('.add-queue-btn');
+    addToQueueButton.addEventListener('click', function () {
+      // Assuming you have a way to retrieve the current movie ID
+      const currentMovieId = movieId;
+
+      // Toggle the movie ID in the queue
+      toggleLocalStorage(currentMovieId, 'queue');
+
+      // Update the button text
+      updateButtonText(addToQueueButton, currentMovieId, 'queue');
+    });
+
+    // Event listener for "Add to Watched" button
+    const addToWatchedButton = document.querySelector('.add-watched-btn');
+    addToWatchedButton.addEventListener('click', function () {
+      // Assuming you have a way to retrieve the current movie ID
+      const currentMovieId = movieId;
+
+      // Toggle the movie ID in the watched list
+      toggleLocalStorage(currentMovieId, 'watched');
+
+      // Update the button text
+      updateButtonText(addToWatchedButton, currentMovieId, 'watched');
+    });
+
     // Open the modal
     openModal();
   } catch (error) {
