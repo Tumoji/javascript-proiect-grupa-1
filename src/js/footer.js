@@ -14,10 +14,12 @@ document.querySelector('.footer-currentYear').textContent = new Date().getFullYe
   footerRefs.overlay.addEventListener("click", closeModalOverlay);
 
   function toggleModal() {
+    // console.log('toggleModal test');
     footerRefs.modal.classList.toggle("footer-is-hidden");
   }
 
   function closeModalOverlay() {
+    console.log('closeModalOverlay test');
     footerRefs.modal.classList.add("footer-is-hidden");
   }
 
