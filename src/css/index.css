@@ -1,5 +1,4 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-@import './header.css';
 @import './search-movies.css';
 @import './gallery.css';
 @import './scroll-button.css';
@@ -8,4 +7,5 @@
 @import './my-library.css';
 @import './footer.css';
 @import './loader.css';
+@import './header.css';
 @import './dark-mode.css';
