@@ -10,17 +10,41 @@ const libraryContainer = document.querySelector('.library');
 const searchErrorContainer = document.querySelector('.searchError');
 const loaderContainer = document.querySelector('.loader-container');
 
+// Function to toggle loader visibility
+function toggleLoader(show) {
+  loaderContainer.style.display = show ? 'flex' : 'none';
+}
+
+// Show loader initially
+toggleLoader(true);
+
+// Use the window's load event to hide the loader when all content is loaded
+window.addEventListener('load', function () {
+  // Set a small delay before hiding the loader to ensure smooth transition
+  setTimeout(function () {
+    toggleLoader(false);
+  }, 500);
+});
+
+function hideLoaderAfterSearch() {
+  // Set a small delay before hiding the loader to ensure smooth transition
+  setTimeout(function () {
+    toggleLoader(false);
+  }, 500);
+}
+
 searchForm.addEventListener('submit', async function (event) {
   event.preventDefault();
 
   const searchTerm = searchInput.value.trim();
   if (searchTerm === '') {
     showError('Please enter a search term');
-    loaderContainer.style.display = 'none';
+    toggleLoader(false);
     return;
   }
 
-  loaderContainer.style.display = 'none';
+  // Toggle the loader when a search is initiated
+  toggleLoader(true);
 
   // Remove the error message when a new search is initiated
   clearError();
@@ -40,7 +64,7 @@ searchForm.addEventListener('submit', async function (event) {
 
     if (movies.length === 0) {
       showError('No results found.');
-      loaderContainer.style.display = 'none';
+      hideLoaderAfterSearch();
       return;
     }
 
@@ -86,9 +110,12 @@ searchForm.addEventListener('submit', async function (event) {
         resultContainer.appendChild(movieCard);
       }
     });
+
+    hideLoaderAfterSearch();
   } catch (error) {
     console.error('Error:', error);
     showError('An error occurred while fetching data.');
+    toggleLoader(false);
   }
 });
 

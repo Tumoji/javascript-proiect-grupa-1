@@ -2,7 +2,7 @@
     height: 1000px;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 20%;
+    margin-top: 17vw;
     display: flex;
     align-items: center;
 }
@@ -39,3 +39,8 @@
     }
   } 
 
+  @media screen and (min-width: 1080px) {
+    .loader-container {
+      margin-top: 13vw;
+    }
+  }
