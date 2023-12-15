@@ -208,3 +208,8 @@ logoContainer.addEventListener('click', function () {
   console.log('logoContainer clicked');
   window.location.href = 'index.html';
 });
+
+btnContainer1.addEventListener('click', function () {
+  console.log('btnContainer1 clicked');
+  window.location.href = 'index.html';
+});
