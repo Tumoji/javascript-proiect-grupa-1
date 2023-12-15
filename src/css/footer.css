@@ -271,25 +271,23 @@
 
 /* modal overlay */
 
-/* Adaugă stil pentru overlay */
 .footer-modal-overlay {
-  z-index: 9; /* Asigură că overlay este sub modal */
+  z-index: 9;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background: #00000033;
-  opacity: 0; /* Inițial face overlay-ul invizibil */
-  pointer-events: none; /* Asigură că overlay-ul nu este interactiv când este invizibil */
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-modal.is-visible .footer-modal-overlay {
-  opacity: 1; /* Face overlay-ul vizibil când modalul este deschis */
-  pointer-events: visiblePainted; /* Face overlay-ul interactiv când este vizibil */
+  opacity: 1;
+  pointer-events: visiblePainted
 }
-
 
 
 /* modal tablet */
