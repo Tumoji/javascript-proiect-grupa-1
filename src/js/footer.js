@@ -1,27 +1,33 @@
-// import { btn1_ctn } from './dark-toggle.js'
-
+// fOOTER.JS
 document.querySelector('.footer-currentYear').textContent = new Date().getFullYear();
 
 (() => {
-    const refs = {
-      openModalBtn: document.querySelector(".footer-data-modal-open"),
-      closeModalBtn: document.querySelector(".footer-data-modal-close"),
-      modal: document.querySelector(".footer-data-modal"),
-    };
-  
-    refs.openModalBtn.addEventListener("click", toggleModal);
-    refs.closeModalBtn.addEventListener("click", toggleModal);
-  
-    function toggleModal() {
-      refs.modal.classList.toggle("footer-is-hidden");
-    }
-  })();
+  const refs = {
+    openModalBtn: document.querySelector(".footer-data-modal-open"),
+    closeModalBtn: document.querySelector(".footer-data-modal-close"),
+    modal: document.querySelector(".footer-data-modal"),
+    overlay: document.querySelector(".footer-modal-overlay"), // Adaugă referință către overlay
+  };
 
-//   const btn1_ctn = document.getElementsByClassName('btn1_container')[0];
-// // debugger;
-//   btn1_ctn.addEventListener('click', () => {
-//     document.div.classList.toggle('footer-dark-mode');
-//   });
+  refs.openModalBtn.addEventListener("click", toggleModal);
+  refs.closeModalBtn.addEventListener("click", toggleModal);
+  refs.overlay.addEventListener("click", closeModalOverlay); // Adaugă eveniment pentru overlay
+
+  function toggleModal() {
+    refs.modal.classList.toggle("footer-is-hidden");
+  }
+
+  function closeModalOverlay() {
+    refs.modal.classList.add("footer-is-hidden");
+  }
+
+  // window.addEventListener('keydown', (e) => {
+  //   if (e.key === 'Escape' && modal) {
+  //     refs.modal.close();
+  //   }
+  // });
+})();
+
 
 
   
