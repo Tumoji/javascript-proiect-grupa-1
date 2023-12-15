@@ -117,7 +117,6 @@ btnContainer1.addEventListener('click', function () {
   // When btn-container-1 is clicked, show the gallery and hide the library
   galleryContainer.style.display = 'block';
   libraryContainer.style.display = 'none';
-  libraryBtnsContainer.style.display = 'none';
 });
 
 btnContainer2.addEventListener('click', function () {
@@ -135,11 +134,10 @@ const clearWatchedBtn = document.querySelector('.clear-watched-btn');
 const clearQueueBtn = document.querySelector('.clear-queue-btn');
 const watchedBtn = document.querySelector('.btn-watched');
 const queueBtn = document.querySelector('.btn-queue');
-
 // Function to set the default state
 function setDefaultState() {
   // Set the default state for the queue button
-  queueBtn.classList.add('active');
+  queueBtn.classList.add('active-btn');
   clearWatchedBtn.style.display = 'none';
   clearQueueBtn.style.display = 'flex';
   // watchedBtn.classList.remove('active');
@@ -152,30 +150,30 @@ watchedBtn.addEventListener('click', function () {
   console.log('watchedBtn clicked');
   // watchedBtn.classList.add('active');
   // Check if the clear watched button is active
-  if (!watchedBtn.classList.contains('active')) {
+  if (!watchedBtn.classList.contains('active-btn')) {
     // Hide the clear queue button
     clearQueueBtn.style.display = 'none';
     // Show the clear watched button
     clearWatchedBtn.style.display = 'flex'; // or 'block' based on your styling
 
-    watchedBtn.classList.add('active');
+    watchedBtn.classList.add('active-btn');
     // Remove the active class from the clear queue button
-    queueBtn.classList.remove('active');
+    queueBtn.classList.remove('active-btn');
   }
 });
 
 queueBtn.addEventListener('click', function () {
   console.log('queueBtn clicked');
   // Check if the clear watched button is active
-  if (!queueBtn.classList.contains('active')) {
+  if (!queueBtn.classList.contains('active-btn')) {
     // Hide the clear queue button
     clearWatchedBtn.style.display = 'none';
     // Show the clear watched button
     clearQueueBtn.style.display = 'flex'; // or 'block' based on your styling
 
-    queueBtn.classList.add('active');
+    queueBtn.classList.add('active-btn');
     // Remove the active class from the clear queue button
-    watchedBtn.classList.remove('active');
+    watchedBtn.classList.remove('active-btn');
   }
 });
 
