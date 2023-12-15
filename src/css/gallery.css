@@ -38,7 +38,7 @@
 
 /* Stilurile pentru imaginea din card */
 .movie-card .movie-image {
-  border-radius: 20px; /* Adaugă raza la colțurile imaginii pentru a se potrivi cu cardul */
+  border-radius: 20px;
   cursor: pointer;
   height: auto; /* Asigură că imaginea ocupă întreaga înălțime a cardului */
   object-fit: cover; /* Redimensionează imaginea astfel încât să acopere întregul container, păstrând proporțiile */
@@ -73,30 +73,16 @@
 }
 
 @media screen and (min-width: 768px) {
-  .movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 20px;
-  }
   .movie-card {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
     width: calc(33% - 14px);
   }
   .movie-card .movie-image {
     /* max-height: 455px; */
   }
-  /* .fixedbutton {
-    bottom: 160px;
-  } */
 }
 
 @media screen and (min-width: 1280px) {
   .movie-container {
-    gap: 20px;
     margin: 20px auto;
     width: 1216px;
   }
@@ -106,7 +92,4 @@
   .movie-card .movie-image {
     /* max-height: 574px; */
   }
-  /* .fixedbutton {
-    bottom: 100px;
-  } */
 }
