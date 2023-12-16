@@ -5,6 +5,7 @@ import apiMovie from './api-movie.js';
 import { getMovieGenres } from './api-genres.js';
 import { createMovieCard } from './markup.js';
 import { openModal } from './modal.js';
+import { createPaginationButtons } from './pagination.js';
 
 let currentPage = 1;
 const TOTAL_PAGES = 500; // Numărul total maxim de pagini disponibile.
@@ -81,41 +82,8 @@ async function updatePaginationAndDisplay(page) {
     currentPage = page;
     await displayMoviesByPage(currentPage);
 
-    const pagination = document.querySelector('.pagination');
-    pagination.innerHTML = '';
-
-    const prevButton = document.createElement('button');
-    prevButton.textContent = '«';
-    prevButton.addEventListener('click', () => {
-      if (currentPage > 1) {
-        updatePaginationAndDisplay(1); // Du-te la prima pagină când este apăsată săgeata spre stânga
-      }
-    });
-    pagination.appendChild(prevButton);
-
-    const maxPages = Math.min(currentPage + 2, TOTAL_PAGES);
-    const minPages = Math.max(1, maxPages - 4);
-
-    for (let i = minPages; i <= maxPages; i++) {
-      const pageButton = document.createElement('button');
-      pageButton.textContent = i;
-      if (i === currentPage) {
-        pageButton.classList.add('active');
-      }
-      pageButton.addEventListener('click', () => {
-        updatePaginationAndDisplay(i);
-      });
-      pagination.appendChild(pageButton);
-    }
-
-    const nextButton = document.createElement('button');
-    nextButton.textContent = '»';
-    nextButton.addEventListener('click', () => {
-      if (currentPage < TOTAL_PAGES) {
-        updatePaginationAndDisplay(TOTAL_PAGES); // Du-te la ultima pagină când este apăsată săgeata spre dreapta
-      }
-    });
-    pagination.appendChild(nextButton);
+    // Utilizarea funcției din fișierul pagination.js pentru a crea butoanele de paginare
+    createPaginationButtons(currentPage, updatePaginationAndDisplay);
   } catch (error) {
     console.error('There was a problem updating pagination:', error);
   }
