@@ -1,6 +1,9 @@
 import axios from 'axios';
 import apiSearch from './api-search.js';
 import { getMovieGenres } from './api-genres.js';
+import { createMovieCard } from './markup.js';
+import { openModal } from './modal.js';
+import { createPaginationButtons } from './pagination.js';
 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('.searchInput');
@@ -9,6 +12,23 @@ const galleryContainer = document.querySelector('.gallery');
 const libraryContainer = document.querySelector('.library');
 const searchErrorContainer = document.querySelector('.searchError');
 const loaderContainer = document.querySelector('.loader-container');
+
+let currentPage = 1;
+const TOTAL_PAGES = 500; // Numărul total maxim de pagini disponibile.
+const ITEMS_PER_PAGE = 20; // Numărul de elemente pe pagină.
+const MAX_PAGES_DISPLAYED = 5; // Numărul maxim de pagini afișate în paginare
+
+// Funcția pentru atașarea event listener-ului la un card de film:
+function attachCardClickListener(movieCard, movieId) {
+  movieCard.addEventListener('click', () => {
+    openModal(movieId); // Deschide fereastra modală când este apăsat un card de film.
+  });
+}
+
+// Funcția pentru eliminarea event listener-ului de pe un card de film:
+function removeCardClickListener(movieCard) {
+  movieCard.removeEventListener('click', openModal);
+}
 
 // Function to toggle loader visibility
 function toggleLoader(show) {
@@ -68,6 +88,13 @@ searchForm.addEventListener('submit', async function (event) {
       return;
     }
 
+    // Eliminarea event listener-ilor de pe cardurile vechi înainte de adăugarea noilor carduri:
+    const movieCards = document.querySelectorAll('.movie-card');
+    movieCards.forEach(movieCard => {
+      removeCardClickListener(movieCard);
+      movieCard.remove();
+    });
+
     // loaderContainer.style.display = 'flex';
 
     // Clear any existing results
@@ -108,6 +135,7 @@ searchForm.addEventListener('submit', async function (event) {
         movieCard.appendChild(movieTitle);
         movieCard.appendChild(movieInfo);
         resultContainer.appendChild(movieCard);
+        attachCardClickListener(movieCard, movie.id);
       }
     });
 
