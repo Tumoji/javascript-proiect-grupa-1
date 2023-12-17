@@ -1,13 +1,13 @@
 // pagination.js
 
-const TOTAL_PAGES = 500; // Numărul total maxim de pagini disponibile.
+const TOTAL_PAGES = 500;
 
 function createPaginationButtons(currentPage, updatePaginationAndDisplay) {
   const pagination = document.querySelector('.pagination');
   pagination.innerHTML = '';
 
   const prevButton = document.createElement('button');
-  prevButton.textContent = '«';
+  prevButton.innerHTML = '&laquo;';
   prevButton.addEventListener('click', () => {
     if (currentPage > 1) {
       updatePaginationAndDisplay(1); // Du-te la prima pagină când este apăsată săgeata spre stânga
@@ -31,7 +31,7 @@ function createPaginationButtons(currentPage, updatePaginationAndDisplay) {
   }
 
   const nextButton = document.createElement('button');
-  nextButton.textContent = '»';
+  nextButton.innerHTML = '&raquo;';
   nextButton.addEventListener('click', () => {
     if (currentPage < TOTAL_PAGES) {
       updatePaginationAndDisplay(TOTAL_PAGES); // Du-te la ultima pagină când este apăsată săgeata spre dreapta

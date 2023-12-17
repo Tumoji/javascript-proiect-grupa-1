@@ -43,7 +43,6 @@
   height: auto; /* Asigură că imaginea ocupă întreaga înălțime a cardului */
   object-fit: cover; /* Redimensionează imaginea astfel încât să acopere întregul container, păstrând proporțiile */
   width: 100%; /* Asigură că imaginea ocupă întreaga lățime a cardului */
-  height: auto;
   /* max-height: 398px; */
   box-shadow: 0 4px 8px 0 rgba(185, 47, 44, 0.2),
     0 6px 20px 0 rgba(185, 47, 44, 0.19);
