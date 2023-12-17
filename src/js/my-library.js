@@ -1,15 +1,38 @@
 import axios from 'axios';
 import apiMovie from './api-movie.js';
-import { createMovieCardLibrary } from './my-library-markup.js';
 import { getMovieGenres } from './api-genres.js';
+import { createMovieCard } from './markup.js';
 import { openModal } from './modal.js';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
   const btnMyLibrary = document.querySelector('.btn-container-2');
   const btnWatched = document.querySelector('.btn-watched');
   const btnQueue = document.querySelector('.btn-queue');
   const sectionWatched = document.querySelector('.library-watched');
   const sectionQueue = document.querySelector('.library-queue');
+
+  function myLibraryClickHandler() {
+    // Ascunde sectiunea "WATCHED" și afișează sectiunea "QUEUE" la apăsarea butonului "My Library"
+    sectionWatched.style.display = 'none';
+    sectionQueue.style.display = '';
+  }
+
+  function watchedClickHandler() {
+    // Afisează sectiunea "WATCHED" și ascunde sectiunea "QUEUE" la apăsarea butonului "WATCHED"
+    sectionWatched.style.display = '';
+    sectionQueue.style.display = 'none';
+  }
+
+  function queueClickHandler() {
+    // Ascunde sectiunea "WATCHED" și afișează sectiunea "QUEUE" la apăsarea butonului "QUEUE"
+    sectionWatched.style.display = 'none';
+    sectionQueue.style.display = '';
+  }
+
+  // Adăugare event listener-uri pentru fiecare buton
+  btnMyLibrary.addEventListener('click', myLibraryClickHandler);
+  btnWatched.addEventListener('click', watchedClickHandler);
+  btnQueue.addEventListener('click', queueClickHandler);
 
   // Ascunde initial ambele sectiuni
   sectionWatched.style.display = 'none';
@@ -18,20 +41,24 @@ document.addEventListener('DOMContentLoaded', function () {
   btnMyLibrary.addEventListener('click', function () {
     // Afiseaza initial sectiunea "QUEUE" la apasarea butonului "My Library"
     sectionWatched.style.display = 'none';
-    sectionQueue.style.display = 'block';
+    sectionQueue.style.display = '';
   });
 
   btnWatched.addEventListener('click', function () {
     // Afiseaza sectiunea "WATCHED" la apasarea butonului "WATCHED"
-    sectionWatched.style.display = 'block';
+    sectionWatched.style.display = '';
     sectionQueue.style.display = 'none';
   });
 
   btnQueue.addEventListener('click', function () {
     // Afiseaza sectiunea "QUEUE" la apasarea butonului "QUEUE"
     sectionWatched.style.display = 'none';
-    sectionQueue.style.display = 'block';
+    sectionQueue.style.display = '';
   });
+
+  // Obține genurile pentru filme o singură dată
+  const genres = await getMovieGenres();
+  console.log(genres);
 
   // Funcția pentru atașarea event listener-ului la un card de film:
   function attachCardClickListener(movieCard, movieId) {
@@ -40,12 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Funcția pentru eliminarea event listener-ului de pe un card de film:
-  function removeCardClickListener(movieCard) {
-    movieCard.removeEventListener('click', openModal);
-  }
-
-  // Funcția pentru afișarea filmelor din "watched" și "queue"
   async function displayMoviesFromLocalStorage(listType) {
     const movies = JSON.parse(localStorage.getItem(listType)) || [];
     const targetSection =
@@ -54,18 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Golește secțiunea pentru a evita duplicarea filmelor
     targetSection.innerHTML = '';
 
-    // Folosește Promise.all pentru a aștepta completarea tuturor cererilor asincrone
     await Promise.all(
       movies.map(async movieId => {
         try {
           const movieDetails = await getMovieDetails(movieId);
-          const genres = await getMovieGenres();
-
-          console.log(`Aici: ${movieDetails}`);
           // Creează un card pentru fiecare film și adaugă-l în secțiunea corespunzătoare
-          const movieCard = createMovieCardLibrary(movieDetails, genres);
+          const movieCard = createMovieCard(movieDetails, genres);
           attachCardClickListener(movieCard, movieId);
-
           targetSection.appendChild(movieCard);
         } catch (error) {
           console.error('Error fetching movie details:', error);
@@ -117,5 +133,11 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('localStorageUpdated', function (event) {
     // Actualizarea afișajului în funcție de tipul de listă
     displayMoviesFromLocalStorage(event.detail.listType);
+  });
+  window.addEventListener('beforeunload', function () {
+    // Elimină event listener-urile aici
+    btnMyLibrary.removeEventListener('click', myLibraryClickHandler);
+    btnWatched.removeEventListener('click', watchedClickHandler);
+    btnQueue.removeEventListener('click', queueClickHandler);
   });
 });
