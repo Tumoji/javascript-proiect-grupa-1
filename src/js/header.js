@@ -76,6 +76,13 @@ searchForm.addEventListener('submit', async function (event) {
     const response = await axios.get(searchUrl, apiSearch);
     const movies = response.data.results;
 
+    // Eliminarea event listener-ilor de pe cardurile vechi înainte de adăugarea noilor carduri:
+    const movieCards = document.querySelectorAll('.movie-card');
+    movieCards.forEach(movieCard => {
+      removeCardClickListener(movieCard);
+      movieCard.remove();
+    });
+
     // Ascunde Gallery cand apar filme din search
     galleryContainer.style.display = movies.length > 0 ? 'none' : 'block';
 
