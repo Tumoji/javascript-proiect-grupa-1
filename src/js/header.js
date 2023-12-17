@@ -101,14 +101,20 @@ searchForm.addEventListener('submit', async function (event) {
     resultContainer.innerHTML = '';
 
     movies.forEach(async movie => {
-      // Check if the movie has a poster before creating the card
-      if (movie.poster_path || !movie.poster_path) {
-        const movieCard = document.createElement('div');
-        movieCard.classList.add('movie-card-search');
+      const movieCard = document.createElement('div');
+      movieCard.classList.add('movie-card-search');
+      const imgDefault = './images/coming-soon.jpg';
 
-        const movieImage = document.createElement('img');
+      let movieImage = document.createElement('img');
+      // Check if the movie has a poster before creating the card
+      if (movie.poster_path) {
+        // If a poster exists, use the poster image
         const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
         movieImage.src = imageUrl;
+      } else {
+        // If no poster exists, use a default image
+        movieImage.src = imgDefault; 
+      }
         movieImage.alt = movie.title;
         movieImage.classList.add('movie-image');
         movieImage.tabIndex = 0;
@@ -136,8 +142,9 @@ searchForm.addEventListener('submit', async function (event) {
         movieCard.appendChild(movieInfo);
         resultContainer.appendChild(movieCard);
         attachCardClickListener(movieCard, movie.id);
-      }
+      
     });
+  
     hideLoaderAfterSearch();
   } catch (error) {
     console.error('Error:', error);
@@ -282,6 +289,7 @@ btnContainer2.addEventListener('click', function () {
   galleryContainer.style.display = 'none';
   searchContainer.style.display = 'none';
   resultContainer.style.display = 'none';
+  paginationContainer.style.display = 'none';
   libraryContainer.style.display = 'block';
   libraryBtnsContainer.style.display = 'flex';
 });
@@ -341,6 +349,6 @@ logoContainer.addEventListener('click', function () {
 });
 
 btnContainer1.addEventListener('click', function () {
-  console.log('btnContainer1 clicked');
+  console.log('logoContainer clicked');
   window.location.href = 'index.html';
 });
