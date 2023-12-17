@@ -92,3 +92,8 @@ body.dark-mode .pagination button {
 .dark-mode .footer-github-icon:hover {
   filter: invert(0.3) sepia(150%) saturate(5500%) hue-rotate(30deg);
 }
+
+.dark-mode .pagination button:not(.active):hover {
+  color: #1b1a1a;
+  border-radius: 5px;
+}
