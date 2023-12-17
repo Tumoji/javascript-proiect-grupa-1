@@ -1,10 +1,6 @@
 /* scroll-button.css */
 
 /* Fixed button */
-#btn-back-to-top {
-  display: none;
-}
-
 .fixedbutton {
   background-color: transparent;
   border: none;
