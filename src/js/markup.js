@@ -1,7 +1,5 @@
 // markup.js
 
-// import { openModal } from './modal.js';
-
 // Funcție pentru generarea sablonului unui card de film:
 export function createMovieCard(movie, genres) {
   const movieCard = document.createElement('div');
@@ -32,19 +30,18 @@ export function createMovieCard(movie, genres) {
   const releaseYear =
     (movie.release_date && movie.release_date.split('-')[0]) || 'undefined';
 
-  const movieGenres = movie.genre_ids.map(genreId => {
-    const foundGenre = genres.find(genre => genre.id === genreId);
-    return foundGenre ? foundGenre.name : '';
-  });
+  // Verifică dacă movie.genre_ids este definit și este o matrice
+  const movieGenres = Array.isArray(movie.genre_ids)
+    ? movie.genre_ids.map(genreId => {
+        const foundGenre = genres.find(genre => genre.id === genreId);
+        return foundGenre ? foundGenre.name : '';
+      })
+    : [];
 
   // Verifică dacă există genuri disponibile; în caz contrar, afișează un mesaj alternativ
   const genresString = movieGenres.length > 0 ? movieGenres.join(' ') : 'N/A';
   movieInfo.textContent = `${genresString} | ${releaseYear} `;
   movieInfo.classList.add('movie-info');
-
-  // movieCard.addEventListener('click', () => {
-  //   openModal(movie.id);
-  // });
 
   movieCard.appendChild(movieImage);
   movieCard.appendChild(movieTitle);
