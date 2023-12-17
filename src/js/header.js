@@ -103,7 +103,6 @@ searchForm.addEventListener('submit', async function (event) {
     movies.forEach(async movie => {
       const movieCard = document.createElement('div');
       movieCard.classList.add('movie-card-search');
-      const imgDefault = './images/coming-soon.jpg';
 
       let movieImage = document.createElement('img');
       // Check if the movie has a poster before creating the card
@@ -113,7 +112,7 @@ searchForm.addEventListener('submit', async function (event) {
         movieImage.src = imageUrl;
       } else {
         // If no poster exists, use a default image
-        movieImage.src = imgDefault; 
+        movieImage.src = 'https://i.imgur.com/p3MsT9t.jpg'; 
       }
         movieImage.alt = movie.title;
         movieImage.classList.add('movie-image');
