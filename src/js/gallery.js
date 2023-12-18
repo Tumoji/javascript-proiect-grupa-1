@@ -1,5 +1,3 @@
-// gallery.js
-
 import axios from 'axios';
 import apiMovie from './api-movie.js';
 import { getMovieGenres } from './api-genres.js';
@@ -8,9 +6,6 @@ import { openModal } from './modal.js';
 import { createPaginationButtons } from './pagination.js';
 
 let currentPage = 1;
-const TOTAL_PAGES = 500; // Numărul total maxim de pagini disponibile.
-const ITEMS_PER_PAGE = 20; // Numărul de elemente pe pagină.
-const MAX_PAGES_DISPLAYED = 5; // Numărul maxim de pagini afișate în paginare
 
 // Funcția pentru atașarea event listener-ului la un card de film:
 function attachCardClickListener(movieCard, movieId) {
