@@ -95,13 +95,13 @@ export async function openModal(movieId) {
     // Adaugarea continutului modalului
     const modalContent = document.querySelector('.modal-content');
     modalContent.innerHTML = `
-    <div class="left-side-content">
-      <div class="image-size">
-        <img src="https://image.tmdb.org/t/p/w500/${
-          movieDetails.poster_path
-        }" alt="${movieDetails.title}" class="modal-movie-poster">
+      <div class="left-side-content">
+        <div class="image-size">
+          <img src="${getMovieImageUrl(movieDetails.poster_path)}" alt="${
+      movieDetails.title
+    }" class="modal-movie-poster">
+        </div>
       </div>
-    </div>
       <div class="right-side-content">
         <div class="modal-content-details">
             <p class="modal-movie-tille">Title:${movieDetails.title}</p>
@@ -141,6 +141,11 @@ export async function openModal(movieId) {
       </div>
       
     `;
+    function getMovieImageUrl(posterPath) {
+      return posterPath
+        ? `https://image.tmdb.org/t/p/w500/${posterPath}`
+        : 'https://i.imgur.com/p3MsT9t.jpg'; // default image
+    }
 
     // Deschiderea modalului
     openModal();
