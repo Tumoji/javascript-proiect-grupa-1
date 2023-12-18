@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           const movieCard = createMovieCard(movieDetails, genres);
           attachCardClickListener(movieCard, movieId);
 
-          console.log(movieCard);
+          // console.log(movieCard);
 
           targetSection.appendChild(movieCard);
         } catch (error) {
