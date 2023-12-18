@@ -3,7 +3,7 @@ import apiSearch from './api-search.js';
 import { getMovieGenres } from './api-genres.js';
 import { createMovieCard } from './markup.js';
 import { openModal } from './modal.js';
-import { createPaginationButtons } from './pagination.js';
+import { createPaginationButtonsSearch } from './pagination-search.js';
 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.querySelector('.searchInput');
@@ -112,38 +112,36 @@ searchForm.addEventListener('submit', async function (event) {
         movieImage.src = imageUrl;
       } else {
         // If no poster exists, use a default image
-        movieImage.src = 'https://i.imgur.com/p3MsT9t.jpg'; 
+        movieImage.src = 'https://i.imgur.com/p3MsT9t.jpg';
       }
-        movieImage.alt = movie.title;
-        movieImage.classList.add('movie-image');
-        movieImage.tabIndex = 0;
+      movieImage.alt = movie.title;
+      movieImage.classList.add('movie-image');
+      movieImage.tabIndex = 0;
 
-        const movieTitle = document.createElement('h3');
-        movieTitle.textContent = movie.title;
-        movieTitle.classList.add('movie-title');
+      const movieTitle = document.createElement('h3');
+      movieTitle.textContent = movie.title;
+      movieTitle.classList.add('movie-title');
 
-        const movieInfo = document.createElement('p');
-        const releaseYear =
-          (movie.release_date && movie.release_date.split('-')[0]) ||
-          'undefined';
+      const movieInfo = document.createElement('p');
+      const releaseYear =
+        (movie.release_date && movie.release_date.split('-')[0]) || 'undefined';
 
-        const movieGenres = movie.genre_ids.map(genreId => {
-          const foundGenre = genres.find(genre => genre.id === genreId);
-          return foundGenre ? foundGenre.name : '';
-        });
+      const movieGenres = movie.genre_ids.map(genreId => {
+        const foundGenre = genres.find(genre => genre.id === genreId);
+        return foundGenre ? foundGenre.name : '';
+      });
 
-        const genresString = movieGenres.join(' ');
-        movieInfo.textContent = `${genresString} | ${releaseYear}`;
-        movieInfo.classList.add('movie-info');
+      const genresString = movieGenres.join(' ');
+      movieInfo.textContent = `${genresString} | ${releaseYear}`;
+      movieInfo.classList.add('movie-info');
 
-        movieCard.appendChild(movieImage);
-        movieCard.appendChild(movieTitle);
-        movieCard.appendChild(movieInfo);
-        resultContainer.appendChild(movieCard);
-        attachCardClickListener(movieCard, movie.id);
-      
+      movieCard.appendChild(movieImage);
+      movieCard.appendChild(movieTitle);
+      movieCard.appendChild(movieInfo);
+      resultContainer.appendChild(movieCard);
+      attachCardClickListener(movieCard, movie.id);
     });
-  
+
     hideLoaderAfterSearch();
   } catch (error) {
     console.error('Error:', error);
@@ -161,15 +159,15 @@ paginationContainer.addEventListener('click', function (event) {
     const pageNumber = parseInt(target.textContent);
 
     if (!isNaN(pageNumber)) {
-      updatePaginationAndDisplay(pageNumber);
+      updatePaginationAndDisplaySearch(pageNumber);
     } else if (target.id === 'previousButton') {
-      updatePaginationAndDisplay(currentPage - 1);
+      updatePaginationAndDisplaySearch(currentPage - 1);
     } else if (target.id === 'nextButton') {
-      updatePaginationAndDisplay(currentPage + 1);
+      updatePaginationAndDisplaySearch(currentPage + 1);
     }
   }
 });
-async function updatePaginationAndDisplay(newPage) {
+async function updatePaginationAndDisplaySearch(newPage) {
   // Update the current page
   currentPage = newPage;
 
@@ -245,7 +243,10 @@ async function updatePaginationAndDisplay(newPage) {
     hideLoaderAfterSearch();
 
     // Update pagination UI based on the new current page and total pages
-    createPaginationButtons(currentPage, updatePaginationAndDisplay);
+    // createPaginationButtonsSearch(
+    //   currentPage,
+    //   updatePaginationAndDisplaySearch
+    // );
   } catch (error) {
     console.error('Error:', error);
     showError('An error occurred while fetching data.');
@@ -254,7 +255,7 @@ async function updatePaginationAndDisplay(newPage) {
 }
 
 // Apelul inițial pentru afișarea cardurilor pentru prima pagină:
-updatePaginationAndDisplay(currentPage);
+updatePaginationAndDisplaySearch(currentPage);
 
 function showError(message) {
   searchErrorContainer.textContent = message;
