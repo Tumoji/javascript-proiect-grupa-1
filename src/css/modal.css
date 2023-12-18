@@ -245,7 +245,37 @@
   width: 30px;
   height: 30px;
 }
+@media (min-width: 456px) {
+  .modal-movie-card-close {
+    top: 6px;
+    left: 400px;
+  }
+  .modal-movie-card {
+    height: auto;
+    overflow: hidden;
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 599px) {
+  .modal-movie-card-close {
+    /* top: -10px;
+    left: 756px; */
+    left: 570px;
+  }
 
+  .modal-content {
+    flex-direction: row;
+    display: flex;
+    align-items: flex-start;
+  }
+  .modal-movie-card {
+    height: auto;
+    overflow: hidden;
+    padding: 10px;
+  }
+  .left-side-content {
+  }
+}
 @media screen and (min-width: 768px) {
   .modal-movie-poster {
     width: 264px;
@@ -295,6 +325,21 @@
     margin: 0px;
   }
 }
+@media screen and (min-width: 930px) {
+  .modal-movie-card-close {
+    /* top: -10px;
+    left: 756px; */
+    left: 645px;
+  }
+
+  .modal-content {
+  }
+  .modal-movie-card {
+    height: auto;
+  }
+  .left-side-content {
+  }
+}
 
 @media screen and (min-width: 1280px) {
   .modal-movie-card {
@@ -304,6 +349,7 @@
     width: 100%;
     max-width: 806px;
     max-height: max-content;
+    height: auto;
   }
 
   .modal {
