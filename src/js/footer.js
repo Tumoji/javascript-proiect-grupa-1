@@ -10,16 +10,17 @@ document.querySelector('.footer-currentYear').textContent = new Date().getFullYe
   };
   
   function openFooterModal() {
-    console.log("Open Modal");
+    // console.log("Open Modal");
     footerRefs.footerModal.classList.remove("footer-is-hidden");
     footerRefs.cover.classList.remove("footer-is-hidden");
   }
   
   function closeFooterModal() {
-    console.log("Close Modal");
+    // console.log("Close Modal");
     footerRefs.footerModal.classList.add("footer-is-hidden");
     footerRefs.cover.classList.add("footer-is-hidden");
   }
+
 
   footerRefs.openModalBtn.addEventListener("click", openFooterModal);
   footerRefs.closeModalBtn.addEventListener("click", closeFooterModal);
