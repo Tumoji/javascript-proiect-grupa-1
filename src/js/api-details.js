@@ -1,6 +1,9 @@
+// apiDetails.js
+
 const apiDetails = {
   method: 'GET',
-  url: 'https://api.themoviedb.org/3/movie/time?append_to_response=time&language=en-US',
+  url: movieId =>
+    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
   headers: {
     accept: 'application/json',
     Authorization:
