@@ -280,7 +280,6 @@ galleryContainer.style.display = 'block';
 libraryContainer.style.display = 'none';
 
 btnContainer1.addEventListener('click', function () {
-  console.log('btnContainer1 clicked');
   // When btn-container-1 is clicked, show the gallery and hide the library
   galleryContainer.style.display = 'block';
   libraryContainer.style.display = 'none';
@@ -315,7 +314,6 @@ function setDefaultState() {
 setDefaultState();
 
 watchedBtn.addEventListener('click', function () {
-  console.log('watchedBtn clicked');
   // watchedBtn.classList.add('active');
   // Check if the clear watched button is active
   if (!watchedBtn.classList.contains('active-btn')) {
@@ -331,7 +329,6 @@ watchedBtn.addEventListener('click', function () {
 });
 
 queueBtn.addEventListener('click', function () {
-  console.log('queueBtn clicked');
   // Check if the clear watched button is active
   if (!queueBtn.classList.contains('active-btn')) {
     // Hide the clear queue button
@@ -346,11 +343,9 @@ queueBtn.addEventListener('click', function () {
 });
 
 logoContainer.addEventListener('click', function () {
-  console.log('logoContainer clicked');
   window.location.href = 'index.html';
 });
 
 btnContainer1.addEventListener('click', function () {
-  console.log('logoContainer clicked');
   window.location.href = 'index.html';
 });
