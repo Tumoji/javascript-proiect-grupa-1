@@ -1,4 +1,4 @@
-/* FOOTER */
+/* FOOTER css*/
 
 .footer {
   background: #f7f7f7;
@@ -42,10 +42,7 @@
   fill: #b92f2c;
 }
 
-.footer-is-hidden {
-  visibility: hidden;
-  transform: scale(1.1);
-}
+/* modal section */
 
 .footer-modal {
   z-index: 10;
@@ -59,19 +56,14 @@
   justify-content: center;
   align-items: center;
   transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: visiblePainted;
+  /* pointer-events: visiblePainted; */
 }
 
-/* .footer-modal.is-visible {
-  visibility: visible;
-} */
-
-
 .footer-modal-content {
-  padding: 25px 10px;
+  padding: 16px 6px;
   background-color: #fff;
   margin: 0 auto;
-  width: 400px;
+  width: 95%;
   height: auto;
   position: relative;
   border-radius: 20px;
@@ -95,13 +87,13 @@
   background-color: #fff;
   padding: 2px 4px;
   border-radius: 12px;
-  cursor: pointer;
-  outline: none;
+  /* outline: none; */
   width: clamp(1.08rem, 0.7075rem + 1.8625vw, 2.1975rem);
   height: clamp(1.08rem, 0.7075rem + 1.8625vw, 2.1975rem);
 }
 
 .footer-modal-close:hover {
+  cursor: pointer;
   border: 2px solid #b92f2c;
   background: transparent;
 }
@@ -137,7 +129,7 @@
 }
 
 .footer-cards {
-  gap: 10px;
+  gap: 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,12 +139,12 @@
 .footer-team-card {
   border: 2px solid #b92f2c;
   width: 95%;
-  border-radius: 20px;
   height: auto;
+  border-radius: 20px;
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  padding: 5px;
+  gap: 6px;
+  padding: 0;
   box-shadow: 5px 5px 14px -3px rgba(185, 47, 44, 0.67);
   -webkit-box-shadow: 5px 5px 14px -3px rgba(185, 47, 44, 0.67);
   -moz-box-shadow: 5px 5px 14px -3px rgba(185, 47, 44, 0.67);
@@ -161,7 +153,7 @@
 .card-team {
   border: 2px solid;
   width: 80%;
-  height: 85%;
+  height: auto;
   border-radius: 5px;
   margin-bottom: 10px;
 }
@@ -173,19 +165,17 @@
 
 .footer-image-container {
   border-radius: 20px;
-  margin: 10px auto;
-  margin-left: 10px;
-  height: 75px;
-  width: 75px;
+  margin: 10px auto 10px 10px;
 }
 
 .footer-img-size {
   margin: 0 auto;
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   border: 2px solid #b92f2c;
   border-radius: 20px;
   object-fit: cover;
+  display: block;
 }
 
 .footer-member-info {
@@ -260,11 +250,6 @@
   background-image: url(../images/icons/github.svg);
 }
 
-/* .footer-linkedin-icon:hover,
-.footer-github-icon:hover {
-  background-color: #b92f2c;
-} */
-
 .footer-linkedin-icon:hover,
 .footer-github-icon:hover {
   filter: invert(0.3) sepia(150%) saturate(5500%) hue-rotate(30deg);
@@ -275,8 +260,6 @@
   color: #fff;
 }
 
-/* modal overlay */
-
 .footer-modal-cover {
   z-index: 9;
   position: fixed;
@@ -285,20 +268,11 @@
   width: 100vw;
   height: 100vh;
   background: #00000033;
-  /* opacity: 0; */
-  /* pointer-events: none; */
-  /* transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
-/* .footer-modal.footer-is-hidden .footer-modal-cover {
-  opacity: 1;
-  pointer-events: visiblePainted;
-} */
-
-/* .footer-modal.footer-is-hidden {
-  visibility: hidden;
-  transform: scale(1.1);
-} */
+.footer-modal-cover:hover {
+  cursor: pointer;
+}
 
 .footer-is-hidden {
   display: none;
@@ -319,8 +293,8 @@
   }
 
   .footer-team-card {
-    flex-direction: row;
     min-width: 250px;
+    gap: 8px;
   }
 
   .footer-font-flex {
@@ -333,9 +307,8 @@
   }
 
   .footer-modal-content {
+    padding: 18px 8px;
     width: 55%;
-    min-height: 552px;
-    flex-shrink: 0;
   }
 
   .footer-font-title {
@@ -353,15 +326,9 @@
     line-height: clamp(0.75rem, 0.5313rem + 1.0938vw, 1.4063rem);
   }
 
-  .footer-cards {
-    .parent {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-    }
-  }
+.footer-cards {
+  gap: 8px;
+}
 
   .footer-member-info {
     flex-direction: row;
@@ -375,11 +342,11 @@
   }
 
   .footer-img-size {
-    width: 77px;
-    height: 77px;
-    display: block;
+    width: 75px;
+    height: 75px;
   }
 }
+
 
 /* modal desktop */
 
@@ -394,13 +361,7 @@
   }
 
   .footer-cards {
-    .parent {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-    }
+    gap: 10px;
   }
 
   .footer-font-size {
@@ -413,10 +374,8 @@
   }
 
   .footer-modal-content {
+    padding: 20px 10px;
     width: 50%;
-    height: auto;
-    min-height: 558px;
-    flex-shrink: 0;
   }
 
   .footer-team-name {
@@ -431,7 +390,7 @@
 
   .footer-team-card {
     min-width: 270px;
-    flex-direction: row;
+    gap: 10px;
   }
 
   .footer-member-info {
@@ -446,7 +405,6 @@
 
   .footer-img-size {
     width: 80px;
-    height: 80px;
-    display: block;
+    width: 80px;
   }
 }
