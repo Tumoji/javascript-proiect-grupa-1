@@ -18,11 +18,9 @@ function toggleLocalStorage(movieId, key) {
   if (index !== -1) {
     // Dacă este, îl elimină
     storedIds.splice(index, 1);
-    console.log(`Movie ID ${movieId} removed from ${key}.`);
   } else {
     // Dacă nu este, îl adaugă
     storedIds.push(movieId);
-    console.log(`Movie ID ${movieId} added to ${key}.`);
   }
 
   localStorage.setItem(key, JSON.stringify(storedIds));
@@ -89,8 +87,6 @@ export async function openModal(movieId) {
     });
 
     const movieDetails = response.data;
-
-    console.log(movieDetails);
 
     // Adaugarea continutului modalului
     const modalContent = document.querySelector('.modal-content');
