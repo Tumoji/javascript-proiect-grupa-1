@@ -37,7 +37,6 @@
   height: auto; /* Asigură că imaginea ocupă întreaga înălțime a cardului */
   object-fit: cover; /* Redimensionează imaginea astfel încât să acopere întregul container, păstrând proporțiile */
   width: 100%; /* Asigură că imaginea ocupă întreaga lățime a cardului */
-  /* max-height: 398px; */
   box-shadow: 0 4px 8px 0 rgba(185, 47, 44, 0.2),
     0 6px 20px 0 rgba(185, 47, 44, 0.19);
   transition: transform 0.3s ease;
@@ -69,9 +68,6 @@
   .movie-card {
     width: calc(33% - 14px);
   }
-  .movie-card .movie-image {
-    /* max-height: 455px; */
-  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -81,8 +77,5 @@
   }
   .movie-card {
     width: calc(25% - 15px);
-  }
-  .movie-card .movie-image {
-    /* max-height: 574px; */
   }
 }
