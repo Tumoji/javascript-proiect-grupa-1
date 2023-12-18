@@ -20,10 +20,10 @@
   padding: 8px 12px;
   text-decoration: none;
   transition: background-color 0.3s;
-  border: none; /* elimină bordura pentru butoane */
-  cursor: pointer; /* afișează cursorul ca pointer */
+  border: none; 
+  cursor: pointer; 
   margin: 0 4px; /* adaugă margini între butoane */
-  background: transparent; /* elimină background-ul implicit */
+  background: transparent; 
 }
 
 /* Stilizare pentru butoanele active din paginare */

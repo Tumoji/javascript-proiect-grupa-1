@@ -1,5 +1,3 @@
-// markup.js
-
 // Funcție pentru generarea sablonului unui card de film:
 export function createMovieCard(movie, genres) {
   const movieCard = document.createElement('div');
@@ -8,12 +6,14 @@ export function createMovieCard(movie, genres) {
   movieCard.setAttribute('modal-movie-card-open', 'true');
 
   const movieImage = document.createElement('img');
+  // If a poster exists, use the poster image:
   const imageUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
   try {
     movieImage.src = imageUrl;
   } catch (error) {
-    movieImage.src = './images/loader-img.png'; // sau un alt text
+    // If no poster exists, use a default image:
+    movieImage.src = 'https://i.imgur.com/p3MsT9t.jpg';
     movieImage.alt = 'Image not available';
     console.error('Failed to load image:', error);
   }
