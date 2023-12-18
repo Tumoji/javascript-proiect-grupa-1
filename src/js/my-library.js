@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   // Apelează funcția pentru ambele tipuri de liste
-  displayMoviesFromLocalStorage('watched');
-  displayMoviesFromLocalStorage('queue');
+  displayMoviesFromLocalStorage('watched', sectionWatched);
+  displayMoviesFromLocalStorage('queue', sectionQueue);
 
   const clearWatchedBtn = document.querySelector('.clear-watched-btn');
   const clearQueueBtn = document.querySelector('.clear-queue-btn');
