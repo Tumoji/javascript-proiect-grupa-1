@@ -12,6 +12,7 @@ const galleryContainer = document.querySelector('.gallery');
 const libraryContainer = document.querySelector('.library');
 const searchErrorContainer = document.querySelector('.searchError');
 const loaderContainer = document.querySelector('.loader-container');
+const paginationContainer = document.querySelector('.pagination');
 
 let currentPage = 1;
 const TOTAL_PAGES = 500; // Numărul total maxim de pagini disponibile.
@@ -91,7 +92,8 @@ searchForm.addEventListener('submit', async function (event) {
 
     if (movies.length === 0) {
       showError('No results found.');
-      hideLoaderAfterSearch();
+      paginationContainer.style.display = 'none';
+    toggleLoader(false);
       return;
     }
 
@@ -150,7 +152,7 @@ searchForm.addEventListener('submit', async function (event) {
   }
 });
 
-const paginationContainer = document.querySelector('.pagination');
+
 paginationContainer.addEventListener('click', function (event) {
   const target = event.target;
 
