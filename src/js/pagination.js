@@ -1,5 +1,3 @@
-// pagination.js
-
 const TOTAL_PAGES = 500;
 
 function createPaginationButtons(currentPage, updatePaginationAndDisplay) {
@@ -10,7 +8,8 @@ function createPaginationButtons(currentPage, updatePaginationAndDisplay) {
   prevButton.innerHTML = '&laquo;';
   prevButton.addEventListener('click', () => {
     if (currentPage > 1) {
-      updatePaginationAndDisplay(1); // Du-te la prima pagină când este apăsată săgeata spre stânga
+      // Du-te la prima pagină când este apăsată săgeata spre stânga:
+      updatePaginationAndDisplay(1);
     }
   });
   pagination.appendChild(prevButton);
@@ -34,7 +33,8 @@ function createPaginationButtons(currentPage, updatePaginationAndDisplay) {
   nextButton.innerHTML = '&raquo;';
   nextButton.addEventListener('click', () => {
     if (currentPage < TOTAL_PAGES) {
-      updatePaginationAndDisplay(TOTAL_PAGES); // Du-te la ultima pagină când este apăsată săgeata spre dreapta
+      // Du-te la ultima pagină când este apăsată săgeata spre dreapta:
+      updatePaginationAndDisplay(TOTAL_PAGES);
     }
   });
   pagination.appendChild(nextButton);
