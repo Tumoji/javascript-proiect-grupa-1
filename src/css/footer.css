@@ -42,11 +42,6 @@
   fill: #b92f2c;
 }
 
-.footer-is-hidden {
-  visibility: hidden;
-  transform: scale(1.1);
-}
-
 /* modal section */
 
 .footer-modal {
@@ -92,13 +87,13 @@
   background-color: #fff;
   padding: 2px 4px;
   border-radius: 12px;
-  cursor: pointer;
   /* outline: none; */
   width: clamp(1.08rem, 0.7075rem + 1.8625vw, 2.1975rem);
   height: clamp(1.08rem, 0.7075rem + 1.8625vw, 2.1975rem);
 }
 
 .footer-modal-close:hover {
+  cursor: pointer;
   border: 2px solid #b92f2c;
   background: transparent;
 }
@@ -273,6 +268,10 @@
   width: 100vw;
   height: 100vh;
   background: #00000033;
+}
+
+.footer-modal-cover:hover {
+  cursor: pointer;
 }
 
 .footer-is-hidden {
