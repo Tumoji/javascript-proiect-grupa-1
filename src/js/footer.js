@@ -28,20 +28,17 @@ document.querySelector('.footer-currentYear').textContent = new Date().getFullYe
   }
 
   function closeModalCover() {
+    console.log('test');
     footerRefs.footerModal.classList.add("footer-is-hidden");
   }
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !footerRefs.footerModal.classList.contains('footer-is-hidden')) {
-      closeFooterModal();
-    }
-  });
-
-})();
-
-
   // document.addEventListener('keydown', function (e) {
-  //   if (e.key === 'Escape' && !footerModal.classList.contains('footer-is-hidden')) {
+  //   if (
+  //     e.key === 'Escape' &&
+  //     !footerRefs.footerModal.classList.contains('footer-is-hidden')
+  //   ) {
   //     closeFooterModal();
   //   }
   // });
+
+})();
