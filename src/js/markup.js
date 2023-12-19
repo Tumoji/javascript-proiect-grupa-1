@@ -31,12 +31,16 @@ export function createMovieCard(movie, genres) {
     (movie.release_date && movie.release_date.split('-')[0]) || 'undefined';
 
   // Verifică dacă movie.genre_ids este definit și este o matrice
-  const movieGenres = Array.isArray(movie.genre_ids)
-    ? movie.genre_ids.map(genreId => {
-        const foundGenre = genres.find(genre => genre.id === genreId);
-        return foundGenre ? foundGenre.name : '';
-      })
-    : [];
+
+  const movieGenres =
+    Array.isArray(movie.genres) && movie.genres.length > 0
+      ? movie.genres.map(genre => genre.name)
+      : Array.isArray(movie.genre_ids)
+      ? movie.genre_ids.map(genreId => {
+          const foundGenre = genres.find(genre => genre.id === genreId);
+          return foundGenre ? foundGenre.name : '';
+        })
+      : [];
 
   // Verifică dacă există genuri disponibile; în caz contrar, afișează un mesaj alternativ
   const genresString = movieGenres.length > 0 ? movieGenres.join(' ') : 'N/A';
