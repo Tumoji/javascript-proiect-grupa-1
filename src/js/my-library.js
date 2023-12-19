@@ -69,13 +69,11 @@ document.addEventListener('DOMContentLoaded', async function () {
       movies.map(async movieId => {
         try {
           const movieDetails = await getMovieDetails(movieId);
-          const genres = await getMovieGenres();
+          const genres = await getMovieGenres(); // Obține genurile
 
           // Creează un card pentru fiecare film și adaugă-l în secțiunea corespunzătoare
           const movieCard = createMovieCard(movieDetails, genres);
           attachCardClickListener(movieCard, movieId);
-
-          // console.log(movieCard);
 
           targetSection.appendChild(movieCard);
         } catch (error) {

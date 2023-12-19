@@ -19,7 +19,6 @@ const getMovieGenres = async () => {
     }
 
     const data = await response.json();
-    console.log(data.genres);
     return data.genres;
   } catch (error) {
     console.error('There was a problem fetching movie genres:', error);
